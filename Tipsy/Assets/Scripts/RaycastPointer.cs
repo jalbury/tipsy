@@ -8,7 +8,6 @@ public class RaycastPointer : MonoBehaviour
     public Transform leftHandAnchor = null;
     public Transform rightHandAnchor = null;
     public LineRenderer lineRenderer = null;
-    public Sprite DotPrefab = null;
     public float maxRayDistance = 500.0f;
     public LayerMask excludeLayers;
     public float speedMultiplier = 5.0f;
@@ -100,6 +99,10 @@ public class RaycastPointer : MonoBehaviour
             // move picked up object in accordance with the controller's movement
             rb.MovePosition(laserPointer.origin + laserPointer.direction * pickupDistance);
             rb.MoveRotation(pointer.rotation);
+            // rb.MoveRotation(Quaternion.Euler(pointer.rotation.eulerAngles.x, pointer.rotation.eulerAngles.y, 180f));
+            // rb.MoveRotation(Quaternion.Euler(pointer.localEulerAngles));
+            // set angular velocity of object to zero to avoid it spinning in your hand
+            rb.angularVelocity = Vector3.zero;
 
             return;
         }
@@ -194,13 +197,19 @@ public class RaycastPointer : MonoBehaviour
 
     void pickupObject(GameObject obj, float distance)
     {
-        // indicate that object is picked up and save necessary object components
+        // disable visualization of raycaster
         lineRenderer.enabled = false;
+
+        // indicate that object is picked up and store necessary components
         objectPickedUp = true;
         pickedUpObject = obj;
         pickupDistance = distance;
+
         rb = pickedUpObject.GetComponent<Rigidbody>();
+        // disable gravity on picked-up object to avoid object falling while you're holding it
         rb.useGravity = false;
+        // set angular velocity of object to zero to avoid it spinning in your hand
+        rb.angularVelocity = Vector3.zero;
         throwing = false;
     }
 

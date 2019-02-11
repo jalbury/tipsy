@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Oculus/VR/Scenes/GearVrControllerTest.unity
     guid: d56af3aeb2176e7459f753c1c2e2dd97
@@ -17,7 +17,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Oculus/VR/Scenes/Room.unity
     guid: 54445976c1dbf1c49bb38ba7eba558e8
-  - enabled: 1
-    path: Assets/Oculus/VR/Scenes/MyScene.unity
+  - enabled: 0
+    path: Assets/Scenes/TestScene.unity
     guid: 43a2403100a9340619c4f13e6e733dbf
+  - enabled: 0
+    path: Assets/9t5 Low Poly Pub Pack/Scenes/Demo Scene.unity
+    guid: f365d3397be1c7b4d89342b499edabd7
+  - enabled: 1
+    path: Assets/Scenes/SmallScene.unity
+    guid: 64e7bf327a5584ed584b8f9b4a58bb22
   m_configObjects: {}
