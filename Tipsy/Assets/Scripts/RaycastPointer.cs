@@ -98,9 +98,7 @@ public class RaycastPointer : MonoBehaviour
 
             // move picked up object in accordance with the controller's movement
             rb.MovePosition(laserPointer.origin + laserPointer.direction * pickupDistance);
-            rb.MoveRotation(pointer.rotation);
-            // rb.MoveRotation(Quaternion.Euler(pointer.rotation.eulerAngles.x, pointer.rotation.eulerAngles.y, 180f));
-            // rb.MoveRotation(Quaternion.Euler(pointer.localEulerAngles));
+            rb.MoveRotation(Quaternion.Euler(new Vector3(-90f, 0, 0)));
             // set angular velocity of object to zero to avoid it spinning in your hand
             rb.angularVelocity = Vector3.zero;
 
