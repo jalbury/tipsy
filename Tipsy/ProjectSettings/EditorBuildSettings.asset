@@ -23,10 +23,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/9t5 Low Poly Pub Pack/Scenes/Demo Scene.unity
     guid: f365d3397be1c7b4d89342b499edabd7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 06de1addc4647964c8bf95d060597423
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/MenuScene.unity
+    guid: 7a3d907f0b58a465999cbed7b2f361f7
+  - enabled: 0
     path: Assets/Scenes/SmallScene.unity
     guid: 64e7bf327a5584ed584b8f9b4a58bb22
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 9ce55933c94f842cd96692b579e875fc
   m_configObjects: {}

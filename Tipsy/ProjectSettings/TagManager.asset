@@ -8,6 +8,10 @@ TagManager:
   - objectDispenser
   - shouldDisappear
   - hoverable
+  - button
+  - play
+  - barSeat
+  - cup
   layers:
   - Default
   - TransparentFX
