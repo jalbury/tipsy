@@ -24,7 +24,7 @@ public class CupManager : MonoBehaviour {
             if (Vector3.Distance(transform.position, mat.position) < 0.1f)
             {
                 mat = null;
-                barSeat.GetComponent<CustomerManager>().serve(this.gameObject);
+                barSeat.GetComponent<SeatManager>().serve(this.gameObject);
             }
             return;
         }
