@@ -10,9 +10,9 @@ public class CustomerManager : MonoBehaviour
     public GameObject[] seats = null;
     private int customersSpawned = 0;
 
-    // Use this for initialization
     void Start()
     {
+        // start spawning coroutine
         StartCoroutine(Spawner());
     }
 
@@ -27,7 +27,7 @@ public class CustomerManager : MonoBehaviour
         yield return new WaitForSeconds(wait_time);
 
         // try to spawn new customer; if we can't, that's okay too because we're
-        // just gonna call the coroutine again
+        // just gonna call this coroutine again
         int seatNum;
         for (int i = 0; i < seats.Length; i++)
         {
@@ -45,7 +45,6 @@ public class CustomerManager : MonoBehaviour
         StartCoroutine(Spawner());
     }
 
-    // Update is called once per frame
     void Update()
     {
         // if we haven't spawned all customers yet, do nothing

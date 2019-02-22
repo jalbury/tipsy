@@ -11,7 +11,6 @@ public class CupManager : MonoBehaviour {
     private bool canPickMeUp = true;
     private bool onBarSeat = false;
 	
-	// Update is called once per frame
 	void Update () 
     {
         if (mat != null)
@@ -41,11 +40,11 @@ public class CupManager : MonoBehaviour {
                 onBarSeat = true;
                 barSeat = hit.collider.gameObject;
             }
+            else if (hit.collider.tag == "bartenderTable")
+            {
+                onBarSeat = false;
+            }
         }
-        //else
-        //{
-        //    onBarSeat = false;
-        //}
     }
 
     // returns whether cup should be thrown

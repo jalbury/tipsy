@@ -100,10 +100,18 @@ public class RaycastPointer : MonoBehaviour
 
             // move picked up object in accordance with the controller's movement
             rb.MovePosition(laserPointer.origin + laserPointer.direction * pickupDistance);
-            if (!isCup)
-                rb.MoveRotation(pointer.rotation);
 
-            //rb.MoveRotation(Quaternion.Euler(new Vector3(-90f, 0, 0)));
+            // if the object picked up is a cup, keep its rotation at 0; otherwise, rotate
+            // with controller's rotation
+            if (isCup)
+            {
+                rb.MoveRotation(Quaternion.identity);
+            }
+            else
+            {
+                rb.MoveRotation(pointer.rotation);
+            }
+
             // set angular velocity of object to zero to avoid it spinning in your hand
             rb.angularVelocity = Vector3.zero;
 
@@ -143,7 +151,7 @@ public class RaycastPointer : MonoBehaviour
                 
                 // if we can pick up this object and the trigger is down, pick up the object
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    pickupObject(hit.collider.gameObject, hit.distance, true);
+                    pickupObject(hit.collider.gameObject, hit.distance);
             }
             // check if we hit a menu item that dispenses objects
             else if (hit.collider.tag == "objectDispenser")
@@ -165,25 +173,30 @@ public class RaycastPointer : MonoBehaviour
                 {
                     GameObject menuItem = hit.collider.gameObject;
                     OnSelectScript oss = menuItem.GetComponent <OnSelectScript>();
-                    pickupObject(oss.OnSelect(), hit.distance, false);
+                    pickupObject(oss.OnSelect(), hit.distance);
                 }
             }
+            // check if we hit one of the drop-down menu items
             else if (hit.collider.tag == "hoverable")
             {
+                // tell menu item to perform drop-down
                 GameObject menuItem = hit.collider.gameObject;
                 OnHoverScript ohs = menuItem.GetComponent<OnHoverScript>();
                 ohs.OnHover();
             }
+            // check if we hit the play button on the main menu
             else if (hit.collider.tag == "play")
             {
+                // click "play"
                 lineRenderer.material.color = Color.green;
                 GameObject btn = hit.collider.gameObject;
                 MainMenu menuScript = btn.GetComponent<MainMenu>();
                 menuScript.PlayGame();
             }
+            // otherwise, reset pointer color and indicate that we can't 
+            // currently pick up an object
             else
             {
-                // reset pointer color and indicate that we can't currently pick up an object
                 lineRenderer.material.color = Color.red;
                 onPickupableObject = false;
             }
@@ -192,31 +205,37 @@ public class RaycastPointer : MonoBehaviour
 
     void FixedUpdate()
     {
+        // handle physics of throwing objects
         if (throwing)
         {
-            // calculate velocity of picked up object by calculating difference in position
-            // between last 10 frames and multiply by supplied speed multiplier
+            // set velocity of picked up object by calculating difference in position
+            // between last 10 frames and multiply by user-defined speed multiplier
             rb.velocity = (rb.position - recentPositions.Peek()) * speedMultiplier;
 
             // clear out recent positions queue since we've dropped the object
             recentPositions.Clear();
 
-            // we're no longer throwing the object
+            // indicate we're no longer in the throwing action
             throwing = false;
         }
     }
 
-    void pickupObject(GameObject obj, float distance, bool objectIsCup)
+    void pickupObject(GameObject obj, float distance)
     {
         // disable visualization of raycaster
         lineRenderer.enabled = false;
 
         // indicate that object is picked up and store necessary components
         objectPickedUp = true;
-        isCup = objectIsCup;
         pickedUpObject = obj;
         pickupDistance = distance;
-        
+
+        // check if picked up object is cup
+        if (obj.tag == "cup")
+            isCup = true;
+        else
+            isCup = false;
+            
         rb = pickedUpObject.GetComponentInParent<Rigidbody>();
         // disable gravity on picked-up object to avoid object falling while you're holding it
         rb.useGravity = false;
@@ -227,9 +246,11 @@ public class RaycastPointer : MonoBehaviour
 
     void dropObject()
     {
+        // indicate that we're no longer holding an object
         objectPickedUp = false;
         lineRenderer.enabled = true;
-        // if we're handling a cup, ask CupManager if we should throw it
+
+        // if we were holding a cup, ask CupManager if we should throw it
         if (isCup)
         {
             throwing = pickedUpObject.GetComponentInParent<CupManager>().release();

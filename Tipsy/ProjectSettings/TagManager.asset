@@ -12,6 +12,7 @@ TagManager:
   - play
   - barSeat
   - cup
+  - bartenderTable
   layers:
   - Default
   - TransparentFX
