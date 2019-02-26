@@ -23,6 +23,7 @@ public class CupManager : MonoBehaviour {
             if (Vector3.Distance(transform.position, mat.position) < 0.1f)
             {
                 mat = null;
+                this.gameObject.GetComponent<Rigidbody>().useGravity = true;
                 barSeat.GetComponent<SeatManager>().serve(this.gameObject);
             }
             return;

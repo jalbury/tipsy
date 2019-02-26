@@ -13,9 +13,10 @@ public class SeatManager : MonoBehaviour {
         if (customer != null)
             return;
 
-        // get location to put customer at for this seat
-        Vector3 customerLocation = this.gameObject.transform.GetChild(1).position;
-        customer = (GameObject)Instantiate(newCustomer, customerLocation, Quaternion.identity);
+        // get location and rotation of customer for this seat
+        // Vector3 customerLocation = this.gameObject.transform.GetChild(1).position;
+        Transform customerPlacement = this.gameObject.transform.GetChild(1);
+        customer = (GameObject)Instantiate(newCustomer, customerPlacement.position, customerPlacement.rotation);
     }
 
     // returns whether this seat currently has a customer

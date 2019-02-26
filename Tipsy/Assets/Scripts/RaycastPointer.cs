@@ -17,7 +17,7 @@ public class RaycastPointer : MonoBehaviour
     private bool objectPickedUp = false;
     private bool isCup = false;
     private GameObject pickedUpObject = null;
-    private float pickupDistance;
+    public float objDistance = 3.0f;
     private bool throwing = false;
     private Rigidbody rb = null;
     Queue<Vector3> recentPositions = new Queue<Vector3>();
@@ -99,7 +99,7 @@ public class RaycastPointer : MonoBehaviour
             recentPositions.Enqueue(rb.position);
 
             // move picked up object in accordance with the controller's movement
-            rb.MovePosition(laserPointer.origin + laserPointer.direction * pickupDistance);
+            rb.MovePosition(laserPointer.origin + laserPointer.direction * objDistance);
 
             // if the object picked up is a cup, keep its rotation at 0; otherwise, rotate
             // with controller's rotation
@@ -151,7 +151,7 @@ public class RaycastPointer : MonoBehaviour
                 
                 // if we can pick up this object and the trigger is down, pick up the object
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    pickupObject(hit.collider.gameObject, hit.distance);
+                    pickupObject(hit.collider.gameObject);
             }
             // check if we hit a menu item that dispenses objects
             else if (hit.collider.tag == "objectDispenser")
@@ -173,7 +173,7 @@ public class RaycastPointer : MonoBehaviour
                 {
                     GameObject menuItem = hit.collider.gameObject;
                     OnSelectScript oss = menuItem.GetComponent <OnSelectScript>();
-                    pickupObject(oss.OnSelect(), hit.distance);
+                    pickupObject(oss.OnSelect());
                 }
             }
             // check if we hit one of the drop-down menu items
@@ -220,7 +220,7 @@ public class RaycastPointer : MonoBehaviour
         }
     }
 
-    void pickupObject(GameObject obj, float distance)
+    void pickupObject(GameObject obj)
     {
         // disable visualization of raycaster
         lineRenderer.enabled = false;
@@ -228,7 +228,6 @@ public class RaycastPointer : MonoBehaviour
         // indicate that object is picked up and store necessary components
         objectPickedUp = true;
         pickedUpObject = obj;
-        pickupDistance = distance;
 
         // check if picked up object is cup
         if (obj.tag == "cup")

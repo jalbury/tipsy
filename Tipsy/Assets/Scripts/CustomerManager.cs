@@ -8,6 +8,7 @@ public class CustomerManager : MonoBehaviour
     public int secondsBetweenSpawns = 60;
     public GameObject customer = null;
     public GameObject[] seats = null;
+    public IDrink[] drinks = null;
     private int customersSpawned = 0;
 
     void Start()
