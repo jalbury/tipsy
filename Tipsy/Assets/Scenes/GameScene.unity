@@ -4143,6 +4143,7 @@ MonoBehaviour:
   numberOfCustomers: 6
   secondsBetweenSpawns: 10
   customer: {fileID: 1366654847080072, guid: e06e3d29e877d4218867f150072481c7, type: 2}
+  numDifficultyLevels: 1
   seats:
   - {fileID: 1601328814}
   - {fileID: 1441514008}
@@ -4150,6 +4151,23 @@ MonoBehaviour:
   - {fileID: 482518839}
   - {fileID: 2037023106}
   - {fileID: 567137866}
+  drinks:
+  - drinkName: Shot of Tequila
+    liquors:
+    - liquid: Tequila
+      amount: 2
+    mixers: []
+    other: []
+    timeLimit: 30
+    difficulty: 1
+  - drinkName: Shot of Rum
+    liquors:
+    - liquid: Rum
+      amount: 2
+    mixers: []
+    other: []
+    timeLimit: 30
+    difficulty: 1
 --- !u!1 &1910892099
 GameObject:
   m_ObjectHideFlags: 0
