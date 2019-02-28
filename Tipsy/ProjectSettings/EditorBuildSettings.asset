@@ -33,6 +33,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SmallScene.unity
     guid: 64e7bf327a5584ed584b8f9b4a58bb22
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: ac4a2be050f09447db7cbe14b3b51cea
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 9ce55933c94f842cd96692b579e875fc
   m_configObjects: {}
