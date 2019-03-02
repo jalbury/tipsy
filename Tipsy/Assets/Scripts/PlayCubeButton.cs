@@ -14,11 +14,18 @@ public class PlayCubeButton : MonoBehaviour
 	{
 		this.GetComponent<MeshRenderer>().material = hoverMat;
 	}
+
 	public void onClick()
 	{
 		this.GetComponent<MeshRenderer>().material = clickMat;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-		Debug.Log("Playing Game");
+
+        // get data for first level (for multiple levels, this should be added
+        // to the onclick for whatever button launches a specific level)
+        LevelData levelData;
+        levelData.difficultyLevels = new int[6] { 1, 1, 1, 1, 1, 1};
+        levelData.timeBetweenSpawns = 10;
+        DataManager.setLevelData(levelData);
+		SceneManager.LoadScene("GameScene");
 	}
 
 }

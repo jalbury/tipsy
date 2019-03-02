@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -21,17 +22,25 @@ public struct Drink
 
 public class CustomerManager : MonoBehaviour
 {
-    public int numberOfCustomers = 6;
-    public int secondsBetweenSpawns = 60;
+    private int numberOfCustomers = 6;
+    private int secondsBetweenSpawns = 60;
     public GameObject customer = null;
-    public int numDifficultyLevels = 3;
+    private int numDifficultyLevels;
     public GameObject[] seats = null;
     public Drink[] drinks = null;
     private List<Drink>[] drinksByDifficultyLevel = null;
     private int customersSpawned = 0;
+    private int[] difficultyLevels;
 
     void Start()
     {
+        // get data for this level
+        LevelData levelData = DataManager.getLevelData();
+        numDifficultyLevels = levelData.difficultyLevels.Max();
+        numberOfCustomers = levelData.difficultyLevels.Length;
+        secondsBetweenSpawns = levelData.timeBetweenSpawns;
+        difficultyLevels = levelData.difficultyLevels;
+
         // bucket drinks based on difficult level
         drinksByDifficultyLevel = new List<Drink>[numDifficultyLevels];
         int levelIndex;
@@ -63,7 +72,7 @@ public class CustomerManager : MonoBehaviour
         yield return new WaitForSeconds(wait_time);
 
         // -- change when difficulty levels are passed to level ----
-        int difficulty = 1;
+        int difficulty = difficultyLevels[customersSpawned];
         // randomly choose drink with the given difficulty level
         int drinkIndex = Random.Range(0, drinksByDifficultyLevel[difficulty-1].Count);
         Drink order = drinksByDifficultyLevel[difficulty-1][drinkIndex];

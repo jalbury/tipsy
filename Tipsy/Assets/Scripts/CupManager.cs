@@ -40,6 +40,7 @@ public class CupManager : MonoBehaviour {
             {
                 onBarSeat = true;
                 barSeat = hit.collider.gameObject;
+                barSeat.GetComponent<SeatManager>().pauseTimer();
             }
             else if (hit.collider.tag == "bartenderTable")
             {

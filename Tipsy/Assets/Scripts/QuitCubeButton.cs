@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class QuitCubeButton : MonoBehaviour {
-
-
+public class QuitCubeButton : MonoBehaviour 
+{
 	public Material defaultMat;
 	public Material hoverMat;
 	public Material clickMat;
@@ -18,7 +17,6 @@ public class QuitCubeButton : MonoBehaviour {
 	{
 		this.GetComponent<MeshRenderer>().material = clickMat;
 		Application.Quit();
-		Debug.Log("Quit Game");
 	}
 
 }
