@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0ee2b2321ad4da78ebeb42b26bd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseObject: {fileID: 1752091975363252, guid: 32872315316444964b1480014c71242d,
+  dispenseObject: {fileID: 1379635288928472, guid: 32872315316444964b1480014c71242d,
     type: 2}
 --- !u!65 &194833699
 BoxCollider:
@@ -4952,7 +4952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0ee2b2321ad4da78ebeb42b26bd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseObject: {fileID: 1457131821921550, guid: 2edeecf38b76f43cc97f37858f2bdbe7,
+  dispenseObject: {fileID: 1217227667350056, guid: 2edeecf38b76f43cc97f37858f2bdbe7,
     type: 2}
 --- !u!65 &1977246689
 BoxCollider:

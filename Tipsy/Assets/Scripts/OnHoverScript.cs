@@ -9,7 +9,8 @@ public class OnHoverScript : MonoBehaviour
 
     private void Start()
     {
-        dropdown.transform.position -= new Vector3(5, 0, 0);
+        // hide dropdown initially
+        dropdown.SetActive(false);
         isShowing = false;
     }
 
@@ -19,8 +20,8 @@ public class OnHoverScript : MonoBehaviour
         if (isShowing)
             return;
 
-        // bring dropdown forward
-        dropdown.transform.position += new Vector3(5, 0, 0);
+        // show dropdown 
+        dropdown.SetActive(true);
 
         isShowing = true;
     }
@@ -30,8 +31,8 @@ public class OnHoverScript : MonoBehaviour
         if (!isShowing)
             return;
 
-        // bring dropdown back
-        dropdown.transform.position -= new Vector3(5, 0, 0);
+        // hide dropdwon
+        dropdown.SetActive(false);
 
         isShowing = false;
     }

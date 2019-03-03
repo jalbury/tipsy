@@ -164,8 +164,8 @@ public class RaycastPointer : MonoBehaviour
                 lineRenderer.material.color = Color.green;
                 isHovering = true;
 
-                // if we were holding down the trigger before hovering over object,
-                // then we need to release the trigger before being able to pick it up
+                // if we were holding down the trigger before hovering over menu item,
+                // then we need to release the trigger before being able to click it
                 if (!onPickupableObject)
                     canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
                 else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
@@ -174,12 +174,15 @@ public class RaycastPointer : MonoBehaviour
                 // indicate that we are hovering over object that we can pick up
                 onPickupableObject = true;
 
-                // if we can pick up this object and the trigger is down, pick up the object
+                // if we can click this menu item and the trigger is down, click it
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
                 {
                     GameObject menuItem = hit.collider.gameObject;
                     OnSelectScript oss = menuItem.GetComponent <OnSelectScript>();
                     pickupObject(oss.OnSelect());
+
+                    // set "unhover" on menu item since we clicked
+                    ohs.OnUnhover();
                 }
             }
             // check if we hit one of the drop-down menu items
