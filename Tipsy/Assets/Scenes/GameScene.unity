@@ -4243,7 +4243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e650a6a787084944954154fee321124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customer: {fileID: 1366654847080072, guid: e06e3d29e877d4218867f150072481c7, type: 2}
+  customer: {fileID: 1762479527477700, guid: e06e3d29e877d4218867f150072481c7, type: 2}
   seats:
   - {fileID: 1601328814}
   - {fileID: 1441514008}
@@ -4253,19 +4253,17 @@ MonoBehaviour:
   - {fileID: 567137866}
   drinks:
   - drinkName: Shot of Tequila
-    liquors:
+    container: Rocks
+    contents:
     - liquid: Tequila
       amount: 2
-    mixers: []
-    other: []
     timeLimit: 30
     difficulty: 1
   - drinkName: Shot of Rum
-    liquors:
+    container: Rocks
+    contents:
     - liquid: Rum
       amount: 2
-    mixers: []
-    other: []
     timeLimit: 30
     difficulty: 1
 --- !u!1 &1910892099

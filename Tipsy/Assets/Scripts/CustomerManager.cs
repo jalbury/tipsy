@@ -13,9 +13,8 @@ public struct DrinkContents
 public struct Drink
 {
     public string drinkName;
-    public DrinkContents[] liquors;
-    public DrinkContents[] mixers;
-    public DrinkContents[] other;
+    public string container;
+    public DrinkContents[] contents;
     public int timeLimit;
     public int difficulty;
 }

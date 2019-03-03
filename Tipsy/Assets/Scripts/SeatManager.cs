@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SeatManager : MonoBehaviour 
 {
     private GameObject customer = null;
+    private Drink customerOrder;
     public float waitTimeUntilDestroy = 3.0f;
     private float timeLeft;
     private bool served = false;
@@ -19,10 +21,18 @@ public class SeatManager : MonoBehaviour
         // get location of customer for this seat
         Transform customerPlacement = this.gameObject.transform.GetChild(1);
         customer = (GameObject)Instantiate(newCustomer, customerPlacement.position, customerPlacement.rotation);
+        customerOrder = order;
 
-        // ------ TO DO: set drink order in customer billboard --------
         // set timer
         timeLeft = (float)order.timeLimit;
+
+        string orderStr = "Order: " + order.drinkName + "\nContents: ";
+        foreach (DrinkContents c in order.contents)
+        {
+            orderStr += c.amount + " oz. " + c.liquid;
+        }
+        orderStr += "\nContainer: " + order.container + "\nTimer: " + Math.Round(timeLeft, 2);
+        customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = orderStr;
     }
 
     // returns whether this seat currently has a customer
@@ -75,6 +85,15 @@ public class SeatManager : MonoBehaviour
             Destroy(customer);
             customer = null;
             served = false;
+            return;
         }
+
+        string orderStr = "Order: " + customerOrder.drinkName + "\nContents: ";
+        foreach (DrinkContents c in customerOrder.contents)
+        {
+            orderStr += c.amount + " oz. " + c.liquid;
+        }
+        orderStr += "\nContainer: " + customerOrder.container + "\nTimer: " + Math.Round(timeLeft, 2);
+        customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = orderStr;
     }
 }
