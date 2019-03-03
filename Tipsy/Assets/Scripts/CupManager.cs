@@ -40,7 +40,6 @@ public class CupManager : MonoBehaviour {
             {
                 onBarSeat = true;
                 barSeat = hit.collider.gameObject;
-                barSeat.GetComponent<SeatManager>().pauseTimer();
             }
             else if (hit.collider.tag == "bartenderTable")
             {
@@ -61,6 +60,8 @@ public class CupManager : MonoBehaviour {
             mat = barSeat.transform.GetChild(0).transform;
             // ensure cup can't be picked up again
             canPickMeUp = false;
+            // pause timer for customer
+            barSeat.GetComponent<SeatManager>().pauseTimer();
             return false;
         }
         return true;
