@@ -20,6 +20,9 @@ public class RaycastPointer : MonoBehaviour
     public float objDistance = 3.0f;
     private bool throwing = false;
     private Rigidbody rb = null;
+    private OnHoverScript ohs = null;
+    private bool wasHovering = false;
+    private bool isHovering = false;
     Queue<Vector3> recentPositions = new Queue<Vector3>();
 
     // initializes anchors and line renderer
@@ -125,6 +128,8 @@ public class RaycastPointer : MonoBehaviour
             lineRenderer.SetPosition(1, laserPointer.origin + laserPointer.direction * maxRayDistance);
         }
 
+        isHovering = false;
+
         RaycastHit hit;
         if (Physics.Raycast(laserPointer, out hit, maxRayDistance, ~excludeLayers))
         {
@@ -157,6 +162,7 @@ public class RaycastPointer : MonoBehaviour
             else if (hit.collider.tag == "objectDispenser")
             {
                 lineRenderer.material.color = Color.green;
+                isHovering = true;
 
                 // if we were holding down the trigger before hovering over object,
                 // then we need to release the trigger before being able to pick it up
@@ -180,8 +186,9 @@ public class RaycastPointer : MonoBehaviour
             else if (hit.collider.tag == "hoverable")
             {
                 // tell menu item to perform drop-down
+                isHovering = true;
                 GameObject menuItem = hit.collider.gameObject;
-                OnHoverScript ohs = menuItem.GetComponent<OnHoverScript>();
+                ohs = menuItem.GetComponent<OnHoverScript>();
                 ohs.OnHover();
             }
             // check if we hit the play button on the main menu
@@ -242,6 +249,11 @@ public class RaycastPointer : MonoBehaviour
                 onPickupableObject = false;
             }
         }
+
+        if (wasHovering && !isHovering)
+            ohs.OnUnhover();
+
+        wasHovering = isHovering;
     }
 
     void FixedUpdate()
