@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct DrinkContents
@@ -24,6 +25,7 @@ public class CustomerManager : MonoBehaviour
     private int numberOfCustomers = 6;
     private int secondsBetweenSpawns = 60;
     public GameObject customer = null;
+    public float waitBeforeEnding = 3.0f; 
     private int numDifficultyLevels;
     public GameObject[] seats = null;
     public Drink[] drinks = null;
@@ -106,6 +108,13 @@ public class CustomerManager : MonoBehaviour
             if (seats[i].GetComponent<SeatManager>().hasCustomer())
                 return;
 
-        // -------------- TO DO: end game ----------------
+        StartCoroutine(endLevel());
+    }
+
+    // end level after waiting for waitBeforeEnding seconds
+    IEnumerator endLevel()
+    {
+        yield return new WaitForSeconds(waitBeforeEnding);
+        SceneManager.LoadScene("StartMenu");
     }
 }

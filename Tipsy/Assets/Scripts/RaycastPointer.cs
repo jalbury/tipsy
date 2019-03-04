@@ -108,7 +108,7 @@ public class RaycastPointer : MonoBehaviour
             // with controller's rotation
             if (isCup)
             {
-                rb.MoveRotation(Quaternion.identity);
+                rb.MoveRotation(Quaternion.Euler(-90, 0, 0));
             }
             else
             {
@@ -140,7 +140,7 @@ public class RaycastPointer : MonoBehaviour
             }
 
             // check if we hit a cup that we are able to pick up
-            if (hit.collider.tag == "cup" && hit.collider.gameObject.GetComponentInParent<CupManager>().canPickup())
+            if (hit.collider.tag == "cup" && hit.collider.gameObject.GetComponent<CupManager>().canPickup())
             {
                 lineRenderer.material.color = Color.blue;
 
@@ -287,11 +287,16 @@ public class RaycastPointer : MonoBehaviour
 
         // check if picked up object is cup
         if (obj.tag == "cup")
+        {
             isCup = true;
+            rb = pickedUpObject.GetComponent<Rigidbody>();
+        }
         else
+        {
             isCup = false;
+            rb = pickedUpObject.GetComponentInParent<Rigidbody>();
+        }
             
-        rb = pickedUpObject.GetComponentInParent<Rigidbody>();
         // disable gravity on picked-up object to avoid object falling while you're holding it
         rb.useGravity = false;
         // set angular velocity of object to zero to avoid it spinning in your hand
@@ -308,7 +313,7 @@ public class RaycastPointer : MonoBehaviour
         // if we were holding a cup, ask CupManager if we should throw it
         if (isCup)
         {
-            throwing = pickedUpObject.GetComponentInParent<CupManager>().release();
+            throwing = pickedUpObject.GetComponent<CupManager>().release();
             isCup = false;
             if (throwing)
                 rb.useGravity = true;

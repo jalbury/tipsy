@@ -43,17 +43,27 @@ public class SeatManager : MonoBehaviour
 
     public void serve(GameObject cup)
     {
-        // destroy cup
-        Destroy(cup, waitTimeUntilDestroy);
+        StartCoroutine(serveHelper(cup));
+    }
 
-        // if there's a customer, calculate and display score and
-        // destroy customer object
+    IEnumerator serveHelper(GameObject cup)
+    {
+        // if there's a customer, calculate and display score
+        if (customer != null)
+            DataManager.addToScore(10);
+
+        // wait before destroying anything
+        yield return new WaitForSeconds(waitTimeUntilDestroy);
+
+        // destroy customer object if there is one
         if (customer != null)
         {
-            DataManager.addToScore(10);
-            Destroy(customer, waitTimeUntilDestroy);
+            Destroy(customer);
             customer = null;
         }
+
+        // destroy cup
+        Destroy(cup);
 
         // reset served flag
         served = false;

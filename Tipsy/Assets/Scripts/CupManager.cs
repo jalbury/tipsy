@@ -20,7 +20,7 @@ public class CupManager : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, mat.position, step);
 
             // Check if the position of the cube and sphere are approximately equal.
-            if (Vector3.Distance(transform.position, mat.position) < 0.1f)
+            if (Vector3.Distance(transform.position, mat.position) < 0.2f)
             {
                 mat = null;
                 this.gameObject.GetComponent<Rigidbody>().useGravity = true;
