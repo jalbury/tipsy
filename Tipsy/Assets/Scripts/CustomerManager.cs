@@ -115,6 +115,6 @@ public class CustomerManager : MonoBehaviour
     IEnumerator endLevel()
     {
         yield return new WaitForSeconds(waitBeforeEnding);
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("ScoreScene");
     }
 }
