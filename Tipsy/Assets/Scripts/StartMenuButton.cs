@@ -14,6 +14,11 @@ public class StartMenuButton : MonoBehaviour {
 		this.GetComponent<MeshRenderer>().material = hoverMat;
 	}
 
+	public void onDefault()
+	{
+		this.GetComponent<MeshRenderer>().material = defaultMat;
+	}
+
 	public void onClick()
 	{
 		this.GetComponent<MeshRenderer>().material = clickMat;

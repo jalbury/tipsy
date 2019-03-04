@@ -855,9 +855,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb77a47fc0854346920ac7d6999455d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMat: {fileID: 0}
-  hoverMat: {fileID: 0}
-  clickMat: {fileID: 0}
+  defaultMat: {fileID: 2100000, guid: 7e1b10fc9de0d2842a1bdf0992ac3131, type: 2}
+  hoverMat: {fileID: 2100000, guid: acf93e8ee5e7719448898aab612d9672, type: 2}
+  clickMat: {fileID: 2100000, guid: 0ad3c3107d8d7d54780cb6dee7afc0ba, type: 2}
 --- !u!1001 &359071708
 Prefab:
   m_ObjectHideFlags: 0
@@ -2882,7 +2882,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 983286733}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2929,9 +2929,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefb48975d9ea1947ac0e346f3eeff17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMat: {fileID: 2100000, guid: e722776126cb10e4295304f1e53f7ec5, type: 2}
-  hoverMat: {fileID: 2100000, guid: 059f16945ce46e846a7c9dd4d298ce07, type: 2}
-  clickMat: {fileID: 2100000, guid: 67ace7959d235c74f89db23bf667d9a8, type: 2}
+  defaultMat: {fileID: 2100000, guid: 7e1b10fc9de0d2842a1bdf0992ac3131, type: 2}
+  hoverMat: {fileID: 2100000, guid: acf93e8ee5e7719448898aab612d9672, type: 2}
+  clickMat: {fileID: 2100000, guid: 0ad3c3107d8d7d54780cb6dee7afc0ba, type: 2}
 --- !u!1 &1011910136
 GameObject:
   m_ObjectHideFlags: 0

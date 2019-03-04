@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -752,9 +752,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c19ea2acd957340a061ad3b3096434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMat: {fileID: 2100000, guid: e722776126cb10e4295304f1e53f7ec5, type: 2}
-  hoverMat: {fileID: 2100000, guid: 059f16945ce46e846a7c9dd4d298ce07, type: 2}
-  clickMat: {fileID: 2100000, guid: 67ace7959d235c74f89db23bf667d9a8, type: 2}
+  defaultMat: {fileID: 2100000, guid: 7e1b10fc9de0d2842a1bdf0992ac3131, type: 2}
+  hoverMat: {fileID: 2100000, guid: acf93e8ee5e7719448898aab612d9672, type: 2}
+  clickMat: {fileID: 2100000, guid: 0ad3c3107d8d7d54780cb6dee7afc0ba, type: 2}
 --- !u!1001 &359071708
 Prefab:
   m_ObjectHideFlags: 0
@@ -2826,9 +2826,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefb48975d9ea1947ac0e346f3eeff17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMat: {fileID: 2100000, guid: e722776126cb10e4295304f1e53f7ec5, type: 2}
-  hoverMat: {fileID: 2100000, guid: 059f16945ce46e846a7c9dd4d298ce07, type: 2}
-  clickMat: {fileID: 2100000, guid: 67ace7959d235c74f89db23bf667d9a8, type: 2}
+  defaultMat: {fileID: 2100000, guid: 7e1b10fc9de0d2842a1bdf0992ac3131, type: 2}
+  hoverMat: {fileID: 2100000, guid: acf93e8ee5e7719448898aab612d9672, type: 2}
+  clickMat: {fileID: 2100000, guid: 0ad3c3107d8d7d54780cb6dee7afc0ba, type: 2}
 --- !u!1 &1011910136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,6 +2907,31 @@ MonoBehaviour:
   enableAdaptiveResolution: 0
   minRenderScale: 0.7
   maxRenderScale: 1
+  expandMixedRealityCapturePropertySheet: 0
+  enableMixedReality: 0
+  compositionMethod: 0
+  extraHiddenLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  capturingCameraDevice: 0
+  flipCameraFrameHorizontally: 0
+  flipCameraFrameVertically: 0
+  handPoseStateLatency: 0
+  sandwichCompositionRenderLatency: 0
+  sandwichCompositionBufferedFrames: 8
+  chromaKeyColor: {r: 0, g: 1, b: 0, a: 1}
+  chromaKeySimilarity: 0.6
+  chromaKeySmoothRange: 0.03
+  chromaKeySpillRange: 0.06
+  useDynamicLighting: 0
+  depthQuality: 1
+  dynamicLightingSmoothFactor: 8
+  dynamicLightingDepthVariationClampingValue: 0.001
+  virtualGreenScreenType: 0
+  virtualGreenScreenTopY: 10
+  virtualGreenScreenBottomY: -10
+  virtualGreenScreenApplyDepthCulling: 0
+  virtualGreenScreenDepthTolerance: 0.2
   _trackingOriginType: 1
   usePositionTracking: 1
   useRotationTracking: 1
