@@ -26,6 +26,7 @@ public class SeatManager : MonoBehaviour
         // set timer
         timeLeft = (float)order.timeLimit;
 
+        // set text for customer order billboard
         string orderStr = "Order: " + order.drinkName + "\nContents: ";
         foreach (DrinkContents c in order.contents)
         {
@@ -33,6 +34,9 @@ public class SeatManager : MonoBehaviour
         }
         orderStr += "\nContainer: " + order.container + "\nTimer: " + Math.Round(timeLeft, 2);
         customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = orderStr;
+
+        // hide text that shows added score
+        customer.transform.GetChild(1).GetComponent<TextMesh>().text = "";
     }
 
     // returns whether this seat currently has a customer
@@ -50,7 +54,11 @@ public class SeatManager : MonoBehaviour
     {
         // if there's a customer, calculate and display score
         if (customer != null)
-            DataManager.addToScore(10);
+        {
+            int score = 10;
+            customer.transform.GetChild(1).GetComponent<TextMesh>().text = "+ " + score;
+            DataManager.addToScore(score);
+        }
 
         // wait before destroying anything
         yield return new WaitForSeconds(waitTimeUntilDestroy);
