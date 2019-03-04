@@ -321,6 +321,7 @@ public class RaycastPointer : MonoBehaviour
         // if we're holding anything else, just throw it
         else
         {
+            pickedUpObject.GetComponentInParent<BottleManager>().release();
             rb.useGravity = true;
             throwing = true;
         }
