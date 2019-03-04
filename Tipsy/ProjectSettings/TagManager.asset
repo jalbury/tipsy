@@ -13,6 +13,9 @@ TagManager:
   - barSeat
   - cup
   - bartenderTable
+  - playCube
+  - quitCube
+  - mainMenuCube
   layers:
   - Default
   - TransparentFX

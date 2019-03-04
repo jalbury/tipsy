@@ -219,6 +219,31 @@ public class RaycastPointer : MonoBehaviour
                 else
                     oss.onHover();
             }
+            // check if we hit the MAin Menu button on the main menu
+            else if (hit.collider.tag == "mainMenuCube")
+            {
+                lineRenderer.material.color = Color.green;
+
+                // if we were holding down the trigger before hovering over play button,
+                // then we need to release the trigger before being able to click it
+                if (!onPickupableObject)
+                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
+                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
+                    canPickupObject = true;
+
+                // indicate that we are hovering over item
+                onPickupableObject = true;
+
+                GameObject menuItem = hit.collider.gameObject;
+                StartMenuButton oss = menuItem.GetComponent<StartMenuButton>();
+
+                // if we can click this button and the trigger is down, click it
+                // otherwise, call onHover()
+                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                    oss.onClick();
+                else
+                    oss.onHover();
+            }
             // check if we hit the quit button on the main menu
             else if (hit.collider.tag == "quitCube")
             {
