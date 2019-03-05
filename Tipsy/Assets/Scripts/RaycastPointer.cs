@@ -96,27 +96,24 @@ public class RaycastPointer : MonoBehaviour
                 return;
             }
 
-            // store the positions for the last 10 frames
+            // keep track of position for only last 10 frames
             if (recentPositions.Count >= 10)
                 recentPositions.Dequeue();
-            recentPositions.Enqueue(rb.position);
-
-            // move picked up object in accordance with the controller's movement
-            rb.MovePosition(laserPointer.origin + laserPointer.direction * objDistance);
-
-            // if the object picked up is a cup, keep its rotation at 0; otherwise, rotate
-            // with controller's rotation
+                
+            // if the object picked up is a cup, manipulate transform directly
             if (isCup)
             {
-                rb.MoveRotation(Quaternion.Euler(-90, 0, 0));
+                pickedUpObject.transform.position = laserPointer.origin + laserPointer.direction * objDistance;
+                pickedUpObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
+                recentPositions.Enqueue(pickedUpObject.transform.position);
             }
+            // otherwise, use rigid body for built-in physics
             else
             {
+                rb.MovePosition(laserPointer.origin + laserPointer.direction * objDistance);
                 rb.MoveRotation(pointer.rotation);
+                recentPositions.Enqueue(rb.position);
             }
-
-            // set angular velocity of object to zero to avoid it spinning in your hand
-            rb.angularVelocity = Vector3.zero;
 
             return;
         }
@@ -140,7 +137,7 @@ public class RaycastPointer : MonoBehaviour
             }
 
             // check if we hit a cup that we are able to pick up
-            if (hit.collider.tag == "cup" && hit.collider.gameObject.GetComponent<CupManager>().canPickup())
+            if (hit.collider.tag == "isCupThreshold" && hit.collider.gameObject.GetComponent<CupManager>().canPickup())
             {
                 lineRenderer.material.color = Color.blue;
 
@@ -301,6 +298,7 @@ public class RaycastPointer : MonoBehaviour
         }
     }
 
+
     void pickupObject(GameObject obj)
     {
         // disable visualization of raycaster
@@ -311,22 +309,16 @@ public class RaycastPointer : MonoBehaviour
         pickedUpObject = obj;
 
         // check if picked up object is cup
-        if (obj.tag == "cup")
+        isCup = (obj.tag == "isCupThreshold");
+
+        // use rigid body if object is not a cup
+        if (!isCup)
         {
-            isCup = true;
             rb = pickedUpObject.GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.angularVelocity = Vector3.zero;
+            throwing = false;
         }
-        else
-        {
-            isCup = false;
-            rb = pickedUpObject.GetComponentInParent<Rigidbody>();
-        }
-            
-        // disable gravity on picked-up object to avoid object falling while you're holding it
-        rb.useGravity = false;
-        // set angular velocity of object to zero to avoid it spinning in your hand
-        rb.angularVelocity = Vector3.zero;
-        throwing = false;
     }
 
     void dropObject()
@@ -335,13 +327,13 @@ public class RaycastPointer : MonoBehaviour
         objectPickedUp = false;
         lineRenderer.enabled = true;
 
-        // if we were holding a cup, ask CupManager if we should throw it
+        // if we were holding a cup, let CupManager handle it
         if (isCup)
         {
-            throwing = pickedUpObject.GetComponent<CupManager>().release();
+            pickedUpObject.GetComponent<CupManager>().release();
+            throwing = false;
+            recentPositions.Clear();
             isCup = false;
-            if (throwing)
-                rb.useGravity = true;
         }
         // if we're holding anything else, just throw it
         else

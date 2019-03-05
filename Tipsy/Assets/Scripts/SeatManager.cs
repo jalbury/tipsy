@@ -10,6 +10,7 @@ public class SeatManager : MonoBehaviour
     public float waitTimeUntilDestroy = 3.0f;
     private float timeLeft;
     private bool served = false;
+    private bool pause = false;
 
     // adds customer to this seat
     public void addCustomer(GameObject newCustomer, Drink order)
@@ -52,13 +53,15 @@ public class SeatManager : MonoBehaviour
 
     IEnumerator serveHelper(GameObject cup)
     {
-        // if there's a customer, calculate and display score
-        if (customer != null)
+        // if there's a customer and they haven't been served, calculate and display score
+        if (customer != null && !served)
         {
             int score = 10;
             customer.transform.GetChild(1).GetComponent<TextMesh>().text = "+ " + score;
             DataManager.addToScore(score);
         }
+
+        served = true;
 
         // wait before destroying anything
         yield return new WaitForSeconds(waitTimeUntilDestroy);
@@ -73,8 +76,9 @@ public class SeatManager : MonoBehaviour
         // destroy cup
         Destroy(cup);
 
-        // reset served flag
+        // reset served and pause flags
         served = false;
+        pause = false;
     }
 
     // pauses the timer for the current current (if there is one currently)
@@ -83,14 +87,14 @@ public class SeatManager : MonoBehaviour
         if (customer == null)
             return;
 
-        // set the served flag to true to indicate that the customer is in
+        // set the pause flag to true to indicate that the customer is in
         // the process of being served (the cup is being lowered to the bar mat)
-        served = true;
+        pause = true;
     }
 
     private void Update()
     {
-        if (customer == null || served)
+        if (customer == null || pause)
             return;
 
         // update timer
@@ -103,6 +107,7 @@ public class SeatManager : MonoBehaviour
             Destroy(customer);
             customer = null;
             served = false;
+            pause = false;
             return;
         }
 
