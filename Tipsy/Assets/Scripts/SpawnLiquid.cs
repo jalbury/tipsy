@@ -35,7 +35,7 @@ public class SpawnLiquid : MonoBehaviour {
             liquids.Add(Prefab.tag, sphereCount);
         }
 
-        float volume = (float)sphereCount / spheresPerOz;
+        float volume = (float)sphereCount / DataManager.spheresPerOz();
         gameObject.transform.GetChild(1).GetChild(0).GetComponent<TextMesh>().text = Math.Round(volume, 2).ToString() + " oz";
 
         Rigidbody RigidPrefab;

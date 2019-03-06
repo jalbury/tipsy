@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0ee2b2321ad4da78ebeb42b26bd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseObject: {fileID: 1266253745255936, guid: 2eb401b9fc11b6b498437fd96c441443,
+  dispenseObject: {fileID: 1225604466909224, guid: 2eb401b9fc11b6b498437fd96c441443,
     type: 2}
 --- !u!65 &194833699
 BoxCollider:
@@ -1473,6 +1473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeUntilDestroy: 3
+  baseScore: 10
 --- !u!1 &483127101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,6 +1862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeUntilDestroy: 3
+  baseScore: 10
 --- !u!1001 &624991764
 Prefab:
   m_ObjectHideFlags: 0
@@ -3860,6 +3862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeUntilDestroy: 3
+  baseScore: 10
 --- !u!1 &1454768715
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeUntilDestroy: 3
+  baseScore: 10
 --- !u!1 &1609287014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,14 +4967,14 @@ MonoBehaviour:
     contents:
     - liquid: Tequila
       amount: 2
-    timeLimit: 30
+    timeLimit: 45
     difficulty: 1
   - drinkName: Shot of Rum
     container: Rocks
     contents:
     - liquid: Rum
       amount: 2
-    timeLimit: 30
+    timeLimit: 45
     difficulty: 1
 --- !u!1 &1910892099
 GameObject:
@@ -5416,6 +5420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeUntilDestroy: 3
+  baseScore: 10
 --- !u!1 &2037023106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5516,6 +5521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeUntilDestroy: 3
+  baseScore: 10
 --- !u!1 &2063152455
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public static class DataManager
 {
     private static int score = 0;
     private static LevelData levelData;
+    private static int numSpheresPerOz = 25;
 
     // returns the current player score
     public static int getScore()
@@ -40,5 +41,11 @@ public static class DataManager
         // reset score to 0 just in case it's still saved from last game
         score = 0;
     }
+
+    public static int spheresPerOz()
+    {
+        return numSpheresPerOz;
+    }
+
 
 }

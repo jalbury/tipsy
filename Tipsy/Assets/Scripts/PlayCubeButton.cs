@@ -28,7 +28,7 @@ public class PlayCubeButton : MonoBehaviour
         // to the onclick for whatever button launches a specific level)
         LevelData levelData;
         levelData.difficultyLevels = new int[6] { 1, 1, 1, 1, 1, 1};
-        levelData.timeBetweenSpawns = 10;
+        levelData.timeBetweenSpawns = 30;
         DataManager.setLevelData(levelData);
 		SceneManager.LoadScene("GameScene");
 	}

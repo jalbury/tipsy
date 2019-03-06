@@ -20,6 +20,15 @@ public struct Drink
     public int difficulty;
 }
 
+public struct DrinkOrder
+{
+    public string drinkName;
+    public string container;
+    public Dictionary<string, float> contents;
+    public int timeLimit;
+    public int difficulty;
+}
+
 public class CustomerManager : MonoBehaviour
 {
     private int numberOfCustomers = 6;
@@ -29,7 +38,8 @@ public class CustomerManager : MonoBehaviour
     private int numDifficultyLevels;
     public GameObject[] seats = null;
     public Drink[] drinks = null;
-    private List<Drink>[] drinksByDifficultyLevel = null;
+    public DrinkOrder[] drinkOrders = null;
+    private List<DrinkOrder>[] drinksByDifficultyLevel = null;
     private int customersSpawned = 0;
     private int[] difficultyLevels;
 
@@ -42,17 +52,33 @@ public class CustomerManager : MonoBehaviour
         secondsBetweenSpawns = levelData.timeBetweenSpawns;
         difficultyLevels = levelData.difficultyLevels;
 
+        int numDrinks = drinks.Length;
+        drinkOrders = new DrinkOrder[numDrinks];
+        for (int i=0; i<numDrinks; i++)
+        {
+            drinkOrders[i].drinkName = drinks[i].drinkName;
+            drinkOrders[i].container = drinks[i].container;
+            drinkOrders[i].timeLimit = drinks[i].timeLimit;
+            drinkOrders[i].difficulty = drinks[i].difficulty;
+
+            drinkOrders[i].contents = new Dictionary<string, float>();
+            foreach(DrinkContents d in drinks[i].contents)
+            {
+                drinkOrders[i].contents.Add(d.liquid, d.amount);
+            }
+        }
+
         // bucket drinks based on difficult level
-        drinksByDifficultyLevel = new List<Drink>[numDifficultyLevels];
+        drinksByDifficultyLevel = new List<DrinkOrder>[numDifficultyLevels];
         int levelIndex;
-        foreach(Drink d in drinks)
+        foreach(DrinkOrder d in drinkOrders)
         {
             // get difficulty "bucket" for this drinks
             levelIndex = d.difficulty - 1;
 
             // make sure list for this bucket has been created; if not, create it
             if (drinksByDifficultyLevel[levelIndex] == null)
-                drinksByDifficultyLevel[levelIndex] = new List<Drink>();
+                drinksByDifficultyLevel[levelIndex] = new List<DrinkOrder>();
 
             // add this drink to appropriate bucket
             drinksByDifficultyLevel[levelIndex].Add(d);
@@ -76,7 +102,7 @@ public class CustomerManager : MonoBehaviour
         int difficulty = difficultyLevels[customersSpawned];
         // randomly choose drink with the given difficulty level
         int drinkIndex = Random.Range(0, drinksByDifficultyLevel[difficulty-1].Count);
-        Drink order = drinksByDifficultyLevel[difficulty-1][drinkIndex];
+        DrinkOrder order = drinksByDifficultyLevel[difficulty-1][drinkIndex];
 
         // try to spawn new customer; if we can't, that's okay too because we're
         // just gonna call this coroutine again
