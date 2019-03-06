@@ -9,16 +9,16 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1760262524196302}
+  m_RootGameObject: {fileID: 1564380735450998}
   m_IsPrefabAsset: 1
---- !u!1 &1760262524196302
+--- !u!1 &1564380735450998
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4140475211189366}
+  - component: {fileID: 4974119972449392}
   m_Layer: 0
   m_Name: Table Top
   m_TagString: Untagged
@@ -26,14 +26,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4140475211189366
+--- !u!4 &4974119972449392
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1760262524196302}
+  m_GameObject: {fileID: 1564380735450998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.401, y: 2.012, z: -3.52}
+  m_LocalPosition: {x: 26.76, y: 2.012, z: -3.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -16,6 +16,9 @@ TagManager:
   - playCube
   - quitCube
   - mainMenuCube
+  - isCupThreshold
+  - Rum
+  - Tequila
   layers:
   - Default
   - TransparentFX

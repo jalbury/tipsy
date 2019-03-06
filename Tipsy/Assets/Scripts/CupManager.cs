@@ -29,6 +29,9 @@ public class CupManager : MonoBehaviour {
 
         yOffset = gameObject.GetComponent<MeshFilter>().mesh.bounds.extents.y + 0.025f;
         offset = new Vector3(0, yOffset, 0);
+
+        // turn off volume billboard initially
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     void Update () 
@@ -50,6 +53,9 @@ public class CupManager : MonoBehaviour {
                 }
                 else
                 {
+                    // turn volume billboard on when put on bartender table
+                    gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                    gameObject.transform.GetChild(1).GetChild(0).GetComponent<TextMesh>().text = "0 oz";
                     canPickMeUp = true;
                 }
             }
@@ -119,6 +125,9 @@ public class CupManager : MonoBehaviour {
 
     public bool canPickup()
     {
+        // turn off volume billboard when cup is going to be picked up
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+
         return canPickMeUp;
     }
 
