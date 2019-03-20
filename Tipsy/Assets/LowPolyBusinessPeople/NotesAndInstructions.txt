@@ -1,0 +1,15 @@
+V1.0 - 8th October 2018
+Base pack with 13 Suit variations and 13 Male Head Variations. 
+12 Female Bases and 13 Suit Variations.
+
+Please use the supplied prefabs as they have the correct scripts attached.
+They Are located in the Male/Female Folders under the prefab folder.
+
+Basic Walk, Idle, Sit and HandShake Animations that can be used as poses.
+Animations are stored in the AllSuits Rigged Mesh in the Male Mesh Folder.
+
+This pack will be extended upon over time with new poses and animations
+
+Please contact me by Email before Reviewing with Requests: me@robertramsay.co.uk or on Unity Connect via my Asset Store Page Profile.
+
+NEW: OCT 22: New Sitting Poses, Phone Poses. Low Poly Office Props Demo Pack added.
