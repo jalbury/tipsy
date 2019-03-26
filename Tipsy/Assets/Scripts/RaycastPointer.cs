@@ -16,7 +16,7 @@ public class RaycastPointer : MonoBehaviour
     private bool canPickupObject = false;
     private bool objectPickedUp = false;
     private bool isCup = false;
-    private GameObject pickedUpObject = null;
+    public GameObject pickedUpObject = null;
     public float objDistance = 3.0f;
     private bool throwing = false;
     private Rigidbody rb = null;
@@ -150,10 +150,13 @@ public class RaycastPointer : MonoBehaviour
 
                 // indicate that we are hovering over object that we can pick up
                 onPickupableObject = true;
-                
+
                 // if we can pick up this object and the trigger is down, pick up the object
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                { 
                     pickupObject(hit.collider.gameObject);
+                    objDistance = hit.distance;
+                }
             }
             // check if we hit a menu item that dispenses objects
             else if (hit.collider.tag == "objectDispenser")

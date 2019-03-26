@@ -25,20 +25,23 @@ EditorBuildSettings:
     guid: f365d3397be1c7b4d89342b499edabd7
   - enabled: 0
     path: 
-    guid: 06de1addc4647964c8bf95d060597423
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
-    guid: 7a3d907f0b58a465999cbed7b2f361f7
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/SmallScene.unity
     guid: 64e7bf327a5584ed584b8f9b4a58bb22
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartMenu.unity
     guid: ac4a2be050f09447db7cbe14b3b51cea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 9ce55933c94f842cd96692b579e875fc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ScoreScene.unity
     guid: 37a8b11ac5acf8c4891682bbeb04f800
+  - enabled: 1
+    path: Assets/PourTest/BoundedGameScene.unity
+    guid: ce612a855d0fc134691b059da997f9dc
   m_configObjects: {}

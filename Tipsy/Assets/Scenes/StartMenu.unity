@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -599,6 +599,7 @@ GameObject:
   - component: {fileID: 228278805}
   - component: {fileID: 228278804}
   - component: {fileID: 228278803}
+  - component: {fileID: 228278806}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -637,12 +638,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
@@ -700,6 +701,26 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 228278801}
   m_CullTransparentMesh: 0
+--- !u!114 &228278806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 228278801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b92d66ee6c31d48ac709039d8da763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NormalColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_HoverColor:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_DownColor:
+    serializedVersion: 2
+    rgba: 4278190335
 --- !u!1 &228817555
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +787,11 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!4 &267257687 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4464436526328426, guid: d9809c5e8418bb047bf2c8ba1d1a2cec,
+    type: 2}
+  m_PrefabInternal: {fileID: 745799260}
 --- !u!1 &293815170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1623,7 @@ GameObject:
   - component: {fileID: 507744989}
   - component: {fileID: 507744988}
   - component: {fileID: 507744987}
+  - component: {fileID: 507744990}
   m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1635,12 +1662,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}
@@ -1698,6 +1725,26 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 507744985}
   m_CullTransparentMesh: 0
+--- !u!114 &507744990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507744985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b92d66ee6c31d48ac709039d8da763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NormalColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_HoverColor:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_DownColor:
+    serializedVersion: 2
+    rgba: 4278190335
 --- !u!1 &535688096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +2054,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 745799261}
+    m_TransformParent: {fileID: 267257687}
     m_Modifications:
     - target: {fileID: 4542908631068822, guid: 182094242cc8d004881a8ed23bdd2ade, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2023,15 +2070,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4542908631068822, guid: 182094242cc8d004881a8ed23bdd2ade, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -6.123234e-17
       objectReference: {fileID: 0}
     - target: {fileID: 4542908631068822, guid: 182094242cc8d004881a8ed23bdd2ade, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.0000000754979
       objectReference: {fileID: 0}
     - target: {fileID: 4542908631068822, guid: 182094242cc8d004881a8ed23bdd2ade, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -6.1232336e-17
       objectReference: {fileID: 0}
     - target: {fileID: 4542908631068822, guid: 182094242cc8d004881a8ed23bdd2ade, type: 2}
       propertyPath: m_LocalRotation.w
@@ -2039,7 +2086,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4542908631068822, guid: 182094242cc8d004881a8ed23bdd2ade, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114600451609244734, guid: 182094242cc8d004881a8ed23bdd2ade,
         type: 2}
@@ -2059,6 +2106,11 @@ Prefab:
       propertyPath: m_InputModule
       value: 
       objectReference: {fileID: 1122721627}
+    - target: {fileID: 120128021163585744, guid: 182094242cc8d004881a8ed23bdd2ade,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182094242cc8d004881a8ed23bdd2ade, type: 2}
   m_IsPrefabAsset: 0
@@ -3250,7 +3302,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1011910136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fd37912b987a4fddbf72adbe2542fb3, type: 3}
   m_Name: 
@@ -3302,31 +3354,6 @@ MonoBehaviour:
   enableAdaptiveResolution: 0
   minRenderScale: 0.7
   maxRenderScale: 1
-  expandMixedRealityCapturePropertySheet: 0
-  enableMixedReality: 0
-  compositionMethod: 0
-  extraHiddenLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  capturingCameraDevice: 0
-  flipCameraFrameHorizontally: 0
-  flipCameraFrameVertically: 0
-  handPoseStateLatency: 0
-  sandwichCompositionRenderLatency: 0
-  sandwichCompositionBufferedFrames: 8
-  chromaKeyColor: {r: 0, g: 1, b: 0, a: 1}
-  chromaKeySimilarity: 0.6
-  chromaKeySmoothRange: 0.03
-  chromaKeySpillRange: 0.06
-  useDynamicLighting: 0
-  depthQuality: 1
-  dynamicLightingSmoothFactor: 8
-  dynamicLightingDepthVariationClampingValue: 0.001
-  virtualGreenScreenType: 0
-  virtualGreenScreenTopY: 10
-  virtualGreenScreenBottomY: -10
-  virtualGreenScreenApplyDepthCulling: 0
-  virtualGreenScreenDepthTolerance: 0.2
   _trackingOriginType: 1
   usePositionTracking: 1
   useRotationTracking: 1
@@ -3987,7 +4014,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1373130117}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -4.82}
+  m_LocalPosition: {x: 0, y: 0, z: -6.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 228278802}
@@ -3997,7 +4024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.23, y: 2.59}
+  m_AnchoredPosition: {x: 5.91, y: 2.59}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1410895008
@@ -4282,7 +4309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1580991232
 BoxCollider:
   m_ObjectHideFlags: 0

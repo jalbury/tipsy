@@ -25,7 +25,7 @@ public class Pointer : MonoBehaviour
 	{
 		// Use Default Length or Distance from Input Module
 		PointerEventData data = m_InputModule.GetData();
-		float targetLength = data.pointerCurrentRaycast.distance == 0 ? m_DefaultLength : data.pointerCurrentRaycast.distance;
+        float targetLength = data.pointerCurrentRaycast.distance <= 0.001f ? m_DefaultLength : data.pointerCurrentRaycast.distance;
 
 		// Raycast
 		RaycastHit hit = CreateRaycast(targetLength);
@@ -34,8 +34,8 @@ public class Pointer : MonoBehaviour
 		Vector3 endPosition = transform.position + (transform.forward * targetLength);
 
 		// If hit, base it off hit
-		if(hit.collider != null)
-			endPosition = hit.point;
+		//if(hit.collider != null)
+			//endPosition = hit.point;
 
 		// Set Position of Dot
 		m_Dot.transform.position = endPosition;

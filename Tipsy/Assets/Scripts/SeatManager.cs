@@ -23,7 +23,7 @@ public class SeatManager : MonoBehaviour
 
         // get location of customer for this seat
         Transform customerPlacement = this.gameObject.transform.GetChild(1);
-        customer = (GameObject)Instantiate(newCustomer, customerPlacement.position, customerPlacement.rotation);
+        customer = (GameObject)Instantiate(newCustomer, customerPlacement.position + new Vector3(0f, 5f, 0f), customerPlacement.rotation);
         customerOrder = order;
 
         // set timer
