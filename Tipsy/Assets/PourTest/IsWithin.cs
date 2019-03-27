@@ -5,12 +5,16 @@ using UnityEngine;
 public class IsWithin : MonoBehaviour {
 
     public GameObject comparisonPoint;
+    public GameObject cameraRig;
 
 
-   void OnTriggerEnter(Collider other)
+   void OnTriggerStay(Collider other)
     {
-        if(other.gameObject == other.transform.parent.Find("OVRCameraRig").GetComponent<RaycastPointer>().pickedUpObject)
-            other.transform.parent.Find("OVRCameraRig").GetComponent<RaycastPointer>().objDistance += (float) 0.1;
+        if (GameObject.ReferenceEquals(other.gameObject, cameraRig.GetComponent<RaycastPointer>().pickedUpObject))
+        {
+            cameraRig.GetComponent<RaycastPointer>().objDistance += (float)0.1;
+        }
+
 
         /*
         Vector3 direction = comparisonPoint.transform.position - other.transform.position;
@@ -21,6 +25,5 @@ public class IsWithin : MonoBehaviour {
         other.transform.position -= direction;
         */
     }
-
 
 }
