@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0ee2b2321ad4da78ebeb42b26bd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseObject: {fileID: 1746757389720366, guid: 9ef5169e6b30f4e979ff7a0df30868b7,
+  dispenseObject: {fileID: 1076260645394418, guid: 81be56f302a792f49b0196fa45929b1e,
     type: 2}
 --- !u!65 &704364411
 BoxCollider:
@@ -4672,7 +4672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0ee2b2321ad4da78ebeb42b26bd3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseObject: {fileID: 1225604466909224, guid: 2eb401b9fc11b6b498437fd96c441443,
+  dispenseObject: {fileID: 1840073630880446, guid: 2eb401b9fc11b6b498437fd96c441443,
     type: 2}
 --- !u!65 &1547663941
 BoxCollider:
