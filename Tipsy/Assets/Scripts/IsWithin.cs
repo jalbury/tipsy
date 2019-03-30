@@ -6,6 +6,7 @@ public class IsWithin : MonoBehaviour {
 
     public GameObject cameraRig;
 
+
    void OnTriggerStay(Collider other)
     {
         if (GameObject.ReferenceEquals(other.gameObject, cameraRig.GetComponent<RaycastPointer>().pickedUpObject))
@@ -13,4 +14,5 @@ public class IsWithin : MonoBehaviour {
             cameraRig.GetComponent<RaycastPointer>().objDistance += (float)0.1;
         }
     }
+
 }
