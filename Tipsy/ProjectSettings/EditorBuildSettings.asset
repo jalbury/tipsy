@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/PourTest/BoundedGameScene.unity
     guid: ce612a855d0fc134691b059da997f9dc
+  - enabled: 0
+    path: Assets/PourTest/PourTest.unity
+    guid: 1087f467b9612374eb03f4c92f473d71
   m_configObjects: {}
