@@ -113,7 +113,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 1ec104d371c694d26bd6a229715565f5, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &87446882
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +213,8 @@ GameObject:
   m_Name: Customer Location 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &109180375
 Transform:
@@ -292,14 +292,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdfdb51929654843bef31098a507ced, type: 2}
   m_IsPrefabAsset: 0
@@ -370,14 +362,6 @@ Prefab:
     - target: {fileID: 4428573634366526, guid: abdfdb51929654843bef31098a507ced, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdfdb51929654843bef31098a507ced, type: 2}
@@ -971,14 +955,6 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
   m_IsPrefabAsset: 0
@@ -1139,8 +1115,8 @@ GameObject:
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &387981987
 MeshRenderer:
@@ -1394,14 +1370,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1747051746059240, guid: 974fef0f0534144c5bcbbb958170c56f, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1747051746059240, guid: 974fef0f0534144c5bcbbb958170c56f, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
   m_IsPrefabAsset: 0
@@ -1421,8 +1389,8 @@ GameObject:
   m_Name: Customer Seat 4
   m_TagString: barSeat
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &482518840
 Transform:
@@ -1457,7 +1425,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482518839}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1521,8 +1489,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &483127102
 MeshRenderer:
@@ -1653,14 +1621,6 @@ Prefab:
     - target: {fileID: 4428573634366526, guid: abdfdb51929654843bef31098a507ced, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdfdb51929654843bef31098a507ced, type: 2}
@@ -1818,8 +1778,8 @@ GameObject:
   m_Name: Customer Seat 6
   m_TagString: barSeat
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &567137867
 Transform:
@@ -1854,7 +1814,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 567137866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1966,14 +1926,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdfdb51929654843bef31098a507ced, type: 2}
   m_IsPrefabAsset: 0
@@ -1994,8 +1946,8 @@ GameObject:
   m_Name: Customer Location 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &717473799
 Transform:
@@ -2061,14 +2013,6 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
   m_IsPrefabAsset: 0
@@ -2109,8 +2053,8 @@ GameObject:
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &739366281
 MeshRenderer:
@@ -2444,14 +2388,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 799585532}
-  - component: {fileID: 799585534}
-  - component: {fileID: 799585533}
   m_Layer: 0
   m_Name: Customer Location 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &799585532
 Transform:
@@ -2460,35 +2402,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 799585531}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.044654083, y: -0.50549996, z: 1.103}
+  m_LocalPosition: {x: 0.044654083, y: -0.50549996, z: 0.81063664}
   m_LocalScale: {x: 0.4, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 482518840}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &799585533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 799585531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02b9e58cb7f847fe839fb6a3d877a92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &799585534
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 799585531}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.23, y: 2, z: 0.25}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &809307562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,8 +2423,8 @@ GameObject:
   m_Name: Seat Corner 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &809307563
 BoxCollider:
@@ -2868,14 +2787,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdfdb51929654843bef31098a507ced, type: 2}
   m_IsPrefabAsset: 0
@@ -3001,14 +2912,6 @@ Prefab:
     - target: {fileID: 4428573634366526, guid: abdfdb51929654843bef31098a507ced, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060837993326728, guid: abdfdb51929654843bef31098a507ced, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abdfdb51929654843bef31098a507ced, type: 2}
@@ -3287,7 +3190,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.78
+      value: 22.33
       objectReference: {fileID: 0}
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3295,7 +3198,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -12.08
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3303,7 +3206,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_LocalRotation.z
@@ -3311,17 +3214,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762103334686182, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
       propertyPath: m_RootOrder
       value: 31
       objectReference: {fileID: 0}
-    - target: {fileID: 114071738077261620, guid: 064cdc82b82784851893bdfbd249dd9b,
+    - target: {fileID: 95983503404396248, guid: 064cdc82b82784851893bdfbd249dd9b,
         type: 2}
-      propertyPath: destination
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 799585532}
+      objectReference: {fileID: 9100000, guid: 30902dcccdd5fc6449a5af6d801342dc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 064cdc82b82784851893bdfbd249dd9b, type: 2}
   m_IsPrefabAsset: 0
@@ -3606,8 +3509,8 @@ GameObject:
   m_Name: Customer Location 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1199006283
 Transform:
@@ -3776,8 +3679,8 @@ GameObject:
   m_Name: Customer Location 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1325164194
 Transform:
@@ -3979,8 +3882,8 @@ GameObject:
   m_Name: Customer Seat 2
   m_TagString: barSeat
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &1441514009
 BoxCollider:
@@ -4000,7 +3903,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1441514008}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4466,8 +4369,8 @@ GameObject:
   m_Name: Customer Seat 1
   m_TagString: barSeat
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &1601328815
 BoxCollider:
@@ -4487,7 +4390,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1601328814}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4566,8 +4469,8 @@ GameObject:
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &1609287015
 MeshRenderer:
@@ -4983,8 +4886,8 @@ GameObject:
   m_Name: Bartender Table
   m_TagString: bartenderTable
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &1839093950
 BoxCollider:
@@ -5164,8 +5067,8 @@ GameObject:
   m_Name: Seat Corner 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &1910892100
 BoxCollider:
@@ -5509,8 +5412,8 @@ GameObject:
   m_Name: Customer Seat 3
   m_TagString: barSeat
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2032893793
 Transform:
@@ -5545,7 +5448,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2032893792}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5610,8 +5513,8 @@ GameObject:
   m_Name: Customer Seat 5
   m_TagString: barSeat
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2037023107
 Transform:
@@ -5646,7 +5549,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2037023106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5710,8 +5613,8 @@ GameObject:
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &2063152456
 MeshRenderer:
@@ -5823,14 +5726,6 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -359.999
       objectReference: {fileID: 0}
-    - target: {fileID: 1861001757125122, guid: 23b26e9bf2ed8a34cbba56a227adb581, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1861001757125122, guid: 23b26e9bf2ed8a34cbba56a227adb581, type: 2}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b26e9bf2ed8a34cbba56a227adb581, type: 2}
   m_IsPrefabAsset: 0
@@ -5850,7 +5745,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &2092135276
 MeshRenderer:
@@ -5934,8 +5829,8 @@ GameObject:
   m_Name: Table Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2102062233
 Transform:
@@ -5963,8 +5858,8 @@ GameObject:
   m_Name: Customer Location 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2116759332
 Transform:
@@ -6115,14 +6010,6 @@ Prefab:
     - target: {fileID: 400000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
       propertyPath: m_LocalScale.y
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83e566c1314134499a68eae84b03d48, type: 3}
