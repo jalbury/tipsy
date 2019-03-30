@@ -19,16 +19,4 @@ public class MoveAgent : MonoBehaviour
     {
         agent.SetDestination(destination.transform.position);
     }
-
-    //private void Update()
-    //{
-    //    if (Arrived())
-    //        animator.SetBool("stopWalking", true);
-    //}
-
-    //private bool Arrived()
-    //{
-    //    return (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance
-    //        && (!agent.hasPath || agent.velocity.sqrMagnitude == 0f));
-    //}
 }
