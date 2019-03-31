@@ -33,7 +33,8 @@ public class CustomerManager : MonoBehaviour
 {
     private int numberOfCustomers = 6;
     private int secondsBetweenSpawns = 60;
-    public GameObject customer = null;
+    public GameObject male = null;
+    public GameObject female = null;
     public float waitBeforeEnding = 3.0f; 
     private int numDifficultyLevels;
     public GameObject[] seats = null;
@@ -106,14 +107,14 @@ public class CustomerManager : MonoBehaviour
 
         // try to spawn new customer; if we can't, that's okay too because we're
         // just gonna call this coroutine again
-        int seatNum;
+        int seatNum, coinToss = Random.Range(0,2);
         for (int i = 0; i < seats.Length; i++)
         {
             seatNum = Random.Range(0, seats.Length);
             // if seat doesn't already have a customer, add customer there
             if (!seats[seatNum].GetComponent<SeatManager>().hasCustomer())
             {
-                seats[seatNum].GetComponent<SeatManager>().addCustomer(customer, order);
+                seats[seatNum].GetComponent<SeatManager>().addCustomer(coinToss == 0 ? male : female, order);
                 customersSpawned++;
                 break;
             }

@@ -3,20 +3,17 @@ using UnityEngine.AI;
 
 public class MoveAgent : MonoBehaviour
 {
-    public Transform destination;
-    private NavMeshAgent agent;
-    private Animator animator;
+    public Transform spawnLocation;
 
-    // Use this for initialization
-    void Start()
+    public void SetDestination(Vector3 destination)
     {
-        agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        SetDestination();
+        GetComponent<NavMeshAgent>().SetDestination(destination);
     }
 
-    void SetDestination()
+    public void GoToSpawnLocation()
     {
-        agent.SetDestination(destination.transform.position);
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = false;
+        agent.SetDestination(spawnLocation.position);
     }
 }

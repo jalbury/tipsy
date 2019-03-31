@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Oculus/VR/Scenes/Room.unity
     guid: 54445976c1dbf1c49bb38ba7eba558e8
   - enabled: 0
-    path: Assets/Scenes/TestScene.unity
+    path: Assets/Unused/TestScene.unity
     guid: 43a2403100a9340619c4f13e6e733dbf
   - enabled: 0
-    path: Assets/9t5 Low Poly Pub Pack/Scenes/Demo Scene.unity
+    path: Assets/Visual Models/9t5 Low Poly Pub Pack/Scenes/Demo Scene.unity
     guid: f365d3397be1c7b4d89342b499edabd7
   - enabled: 0
     path: 
@@ -30,10 +30,13 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/SmallScene.unity
+    path: Assets/Visual Models/Demo Scenes/SmallScene.unity
     guid: 64e7bf327a5584ed584b8f9b4a58bb22
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StartMenu.unity
+    guid: 14acbb9de06d94da4b37268f574a6897
+  - enabled: 0
+    path: Assets/Scenes/StartMenu_WIP.unity
     guid: ac4a2be050f09447db7cbe14b3b51cea
   - enabled: 1
     path: Assets/Scenes/GameScene.unity

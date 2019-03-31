@@ -35,7 +35,10 @@ public class Checkpoint : MonoBehaviour {
             Quaternion rot = Quaternion.RotateTowards(agent.gameObject.transform.rotation, this.gameObject.transform.rotation, Time.deltaTime * 50f);
             agent.gameObject.transform.rotation = rot;
             if (rot == this.gameObject.transform.rotation)
+            {
                 shouldRotate = false;
+                GetComponentInParent<SeatManager>().onCustomerArrive();
+            }
         }
     }
 }
