@@ -19,6 +19,13 @@ TagManager:
   - isCupThreshold
   - Rum
   - Tequila
+  - Female_SkinForTrousers
+  - Female_SkinForSkirt
+  - Female_TrouserSuit
+  - Female_SkirtSuit
+  - MaleSuit
+  - MaleHead
+  - door
   layers:
   - Default
   - TransparentFX

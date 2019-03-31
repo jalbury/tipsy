@@ -7,63 +7,74 @@ public class rotateAround : MonoBehaviour {
     public bool doorOpensLeft;
     public GameObject pivotPoint;
     public GameObject itemToOpen;
-    bool isClosed;
-    int count;
+    public float swingSpeed = 100f;
+    private float currentAngle;
+    private bool closeDoor;
+    private bool openDoor;
+    private bool isClosed = true;
 
-    private void Start()
-    {
-        isClosed = true;
-        count = 0;
-    }
+
     private void Update()
     {
-        if(!isClosed)
+        if (closeDoor || openDoor)
         {
-            count++;
-            if (count % 180 == 0)
+            currentAngle += Time.deltaTime * swingSpeed;
+            if (currentAngle > 90.0f)
             {
-                close();
-                isClosed = true;
+                isClosed = closeDoor;
+                closeDoor = false;
+                openDoor = false;
+                currentAngle = 0f;
+                return;
+            }
+
+            if ((closeDoor && doorOpensLeft) || (openDoor && !doorOpensLeft))
+            {
+                itemToOpen.transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), -1 * Time.deltaTime * swingSpeed);
+            }
+            else
+            {
+                itemToOpen.transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), Time.deltaTime * swingSpeed);
             }
         }
-        
     }
 
 
-    private void OnMouseUpAsButton()
+    public void OnMouseUpAsButton()
     {
-        if(isClosed)
-        {
-            open();
-        }
-        else if (!isClosed)
-        {
-            close();
-        }
+        onClick();
     }
-    void open()
+
+    public void onClick()
     {
-        isClosed = false ;
-        if(doorOpensLeft)
-            itemToOpen.transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), 90);
+        if (openDoor || closeDoor)
+            currentAngle = 90f - currentAngle;
         else
-            itemToOpen.transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), -90);
-    }
-    void close()
-    {
-        isClosed = true;
-        if(doorOpensLeft)
-            itemToOpen.transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), -90);
+            currentAngle = 0f;
+        if (isClosed)
+        {
+            isClosed = false;
+            openDoor = true;
+            closeDoor = false;
+        }
         else
-            itemToOpen.transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), 90);
+        {
+            isClosed = true;
+            closeDoor = true;
+            openDoor = false;
+        }
     }
-    IEnumerable autoShut()
+
+    IEnumerator autoShut()
     {
         print("This bitch started");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         if (!isClosed)
-            close();
-
+        {
+            isClosed = true;
+            closeDoor = true;
+            openDoor = false;
+        }
     }
 
 }

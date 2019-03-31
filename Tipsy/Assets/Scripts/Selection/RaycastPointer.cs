@@ -269,6 +269,27 @@ public class RaycastPointer : MonoBehaviour
                 else
                     oss.onHover();
             }
+            else if (hit.collider.tag == "door")
+            {
+                lineRenderer.material.color = Color.green;
+
+                // if we were holding down the trigger before hovering over quit button,
+                // then we need to release the trigger before being able to click it
+                if (!onPickupableObject)
+                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
+                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
+                    canPickupObject = true;
+
+                // indicate that we are hovering over object that we can click
+                onPickupableObject = true;
+
+                // if we can click this button and the trigger is down, click it
+                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                {
+                    hit.collider.gameObject.GetComponent<rotateAround>().onClick();
+                    canPickupObject = false;
+                }
+            }
             // otherwise, reset pointer color and indicate that we can't 
             // currently pick up an object
             else

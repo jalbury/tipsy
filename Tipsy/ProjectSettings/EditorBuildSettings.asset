@@ -32,22 +32,25 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Visual Models/Demo Scenes/SmallScene.unity
     guid: 64e7bf327a5584ed584b8f9b4a58bb22
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StartMenu.unity
     guid: 14acbb9de06d94da4b37268f574a6897
   - enabled: 0
     path: Assets/Scenes/StartMenu_WIP.unity
     guid: ac4a2be050f09447db7cbe14b3b51cea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: 9ce55933c94f842cd96692b579e875fc
   - enabled: 0
     path: Assets/Scenes/ScoreScene.unity
     guid: 37a8b11ac5acf8c4891682bbeb04f800
   - enabled: 0
-    path: Assets/PourTest/BoundedGameScene.unity
-    guid: ce612a855d0fc134691b059da997f9dc
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/PourTest/PourTest.unity
-    guid: 1087f467b9612374eb03f4c92f473d71
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Levels/2-Beers.unity
+    guid: 679593f3d5181304691702aad30981ea
   m_configObjects: {}
