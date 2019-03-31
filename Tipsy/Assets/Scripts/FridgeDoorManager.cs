@@ -2,20 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotateAround : MonoBehaviour {
+public class FridgeDoorManager : MonoBehaviour {
 
     public bool doorOpensLeft;
     public GameObject pivotPoint;
     public GameObject itemToOpen;
     public float swingSpeed = 100f;
+    public string label;
+    private TextMesh textMesh;
+    private int numFramesSinceHovering;
     private float currentAngle;
     private bool closeDoor;
     private bool openDoor;
     private bool isClosed = true;
 
+    private void Start()
+    {
+        textMesh = transform.Find("Label").GetComponent<TextMesh>();
+    }
 
     private void Update()
     {
+        if (textMesh.text != "")
+        {
+            numFramesSinceHovering++;
+            if (numFramesSinceHovering >= 5)
+                textMesh.text = "";
+        }
+
         if (closeDoor || openDoor)
         {
             currentAngle += Time.deltaTime * swingSpeed;
@@ -43,6 +57,13 @@ public class rotateAround : MonoBehaviour {
     public void OnMouseUpAsButton()
     {
         onClick();
+    }
+
+    public void onHover()
+    {
+        if (textMesh.text == "")
+            textMesh.text = label;
+        numFramesSinceHovering = 0;
     }
 
     public void onClick()

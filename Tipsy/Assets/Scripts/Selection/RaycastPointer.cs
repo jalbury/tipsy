@@ -283,11 +283,44 @@ public class RaycastPointer : MonoBehaviour
                 // indicate that we are hovering over object that we can click
                 onPickupableObject = true;
 
+                FridgeDoorManager m = hit.collider.gameObject.GetComponent<FridgeDoorManager>();
                 // if we can click this button and the trigger is down, click it
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
                 {
-                    hit.collider.gameObject.GetComponent<rotateAround>().onClick();
+                    m.onClick();
                     canPickupObject = false;
+                }
+                // otherwise, call on hover
+                else
+                {
+                    m.onHover();
+                }
+            }
+            else if (hit.collider.tag == "tap")
+            {
+                lineRenderer.material.color = Color.green;
+
+                // if we were holding down the trigger before hovering over quit button,
+                // then we need to release the trigger before being able to click it
+                if (!onPickupableObject)
+                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
+                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
+                    canPickupObject = true;
+
+                // indicate that we are hovering over object that we can click
+                onPickupableObject = true;
+
+                TapTrigger m = hit.collider.gameObject.GetComponent<TapTrigger>();
+                // if we can click this button and the trigger is down, click it
+                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                {
+                    m.onClick();
+                    canPickupObject = false;
+                }
+                // otherwise, call on hover
+                else
+                {
+                    m.onHover();
                 }
             }
             // otherwise, reset pointer color and indicate that we can't 
