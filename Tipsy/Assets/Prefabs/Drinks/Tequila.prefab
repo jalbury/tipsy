@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 4766558024125112}
   - component: {fileID: 54688602917988392}
   - component: {fileID: 114439215291747584}
-  - component: {fileID: 64200678986106174}
   m_Layer: 0
   m_Name: Tequila
   m_TagString: Tequila
@@ -99,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1840073630880446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.633, y: 3.725, z: -4.234}
+  m_LocalPosition: {x: 20.617912, y: 2.3046904, z: -2.0564759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4450325130386394}
@@ -164,20 +163,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64200678986106174
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1840073630880446}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
 --- !u!64 &64487631699852220
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -204,6 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 54936184100236708, guid: 765e42de4fbec4d97a3cde63fcdbaaa4, type: 2}
+  useSphere: 0
+  liquidColor: {r: 0.9960785, g: 1, b: 1, a: 0}
 --- !u!114 &114439215291747584
 MonoBehaviour:
   m_ObjectHideFlags: 1

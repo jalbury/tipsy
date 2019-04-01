@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4464652321003780}
   - component: {fileID: 54801132193947752}
   - component: {fileID: 114651498923185220}
-  - component: {fileID: 64448486368752258}
   m_Layer: 0
   m_Name: Rum
   m_TagString: Untagged
@@ -98,14 +97,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076260645394418}
-  m_LocalRotation: {x: 0.38358265, y: -0, z: -0, w: 0.9235066}
-  m_LocalPosition: {x: 19.962, y: 2.227109, z: -3.0805683}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.962, y: 2.593, z: -3.0805683}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4308137379498504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45.112003, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23849292024641244
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -163,22 +162,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64448486368752258
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1076260645394418}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
 --- !u!64 &64805697530985548
 MeshCollider:
   m_ObjectHideFlags: 1

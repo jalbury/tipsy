@@ -17,6 +17,7 @@ public class RaycastPointer : MonoBehaviour
     private bool objectPickedUp = false;
     private bool isCup = false;
     public GameObject pickedUpObject = null;
+    private float startDistance = 3.0f;
     public float objDistance = 3.0f;
     private bool throwing = false;
     private Rigidbody rb = null;
@@ -26,6 +27,11 @@ public class RaycastPointer : MonoBehaviour
     private bool tapDispensing = false;
     private TapTrigger tapTrigger = null;
     Queue<Vector3> recentPositions = new Queue<Vector3>();
+
+    private void Start()
+    {
+        startDistance = objDistance;
+    }
 
     // initializes anchors and line renderer
     void Awake()
@@ -57,6 +63,8 @@ public class RaycastPointer : MonoBehaviour
             lineRenderer.widthMultiplier = 0.02f;
             lineRenderer.material.color = Color.red;
         }
+
+
     }
 
     // gets transform of the active controller
@@ -419,5 +427,6 @@ public class RaycastPointer : MonoBehaviour
             rb.useGravity = true;
             throwing = true;
         }
+        objDistance = startDistance;
     }
 }
