@@ -466,7 +466,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 6
   m_WholeNumbers: 0
-  m_Value: 4
+  m_Value: 6
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
