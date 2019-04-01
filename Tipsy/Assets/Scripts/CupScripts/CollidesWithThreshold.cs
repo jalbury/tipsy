@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class CollidesWithThreshold : MonoBehaviour {
     public Rigidbody Prefab;
+    public bool useSphere;
     int count = 0;
+    public Color liquidColor;
+
 
     public void OnParticleCollision(GameObject other)
     {
         count++;
-        print(count);
+        //print(count);
         SpawnLiquid theScript = other.GetComponent<SpawnLiquid>();
 
         if(other.CompareTag("isCupThreshold"))
         {
-            print("Collided with threshold");
+            //print("Collided with threshold");
             if (theScript != null)
             {
-                theScript.spawnObject(Prefab);
+                if(useSphere)
+                    theScript.spawnObject(Prefab);
+                if (!useSphere)
+                    theScript.fillCylinder(Prefab, liquidColor);
             }
             else
             {
@@ -25,10 +31,10 @@ public class CollidesWithThreshold : MonoBehaviour {
             }
 
         }
-        else
+        /*else
         {
             print(other.tag);
-        }
+        }*/
 
             
     }

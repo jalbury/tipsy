@@ -14,6 +14,7 @@ public static class DataManager
     private static int score = 0;
     private static LevelData levelData;
     private static int numSpheresPerOz = 25;
+    private static float amountHeightPerOz = .0001f;
 
     // returns the current player score
     public static int getScore()
@@ -45,6 +46,11 @@ public static class DataManager
     public static int spheresPerOz()
     {
         return numSpheresPerOz;
+    }
+
+    public static float heightPerOz()
+    {
+        return amountHeightPerOz;
     }
 
 
