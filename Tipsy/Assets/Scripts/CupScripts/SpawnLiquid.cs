@@ -88,10 +88,9 @@ public class SpawnLiquid : MonoBehaviour {
         liquidThreshold.transform.localScale += new Vector3(0, DataManager.heightPerOz(),0);
         liquidThreshold.transform.position += new Vector3(0, DataManager.heightPerOz() / 2.0f, 0);
 
-        if (count == 0)
+        if (liquidAmount <= 1)
         {
             liquidThreshold.GetComponent<Renderer>().material.color = liquidColor;
-
         }
         else
             liquidThreshold.GetComponent<Material>().color = Color.Lerp(liquidThreshold.GetComponent<Material>().color,

@@ -392,6 +392,7 @@ public class RaycastPointer : MonoBehaviour
         // indicate that object is picked up and store necessary components
         objectPickedUp = true;
         pickedUpObject = obj;
+        objDistance = startDistance;
 
         // check if picked up object is cup
         isCup = (obj.tag == "isCupThreshold");
@@ -427,6 +428,7 @@ public class RaycastPointer : MonoBehaviour
             rb.useGravity = true;
             throwing = true;
         }
+        pickedUpObject = null;
         objDistance = startDistance;
     }
 }
