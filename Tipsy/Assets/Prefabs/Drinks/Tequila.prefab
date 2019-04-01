@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4766558024125112}
   - component: {fileID: 54688602917988392}
   - component: {fileID: 114439215291747584}
+  - component: {fileID: 65615313255923288}
   m_Layer: 0
   m_Name: Tequila
   m_TagString: Tequila
@@ -173,10 +174,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b3710ea13cb1fe247b82349175588b0b, type: 3}
+--- !u!65 &65615313255923288
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840073630880446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16805649, y: 1, z: 0.22185588}
+  m_Center: {x: -0.35508347, y: 0, z: 0.35367298}
 --- !u!114 &114352420219127852
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,5 +14,4 @@ public class IsWithin : MonoBehaviour {
             cameraRig.GetComponent<RaycastPointer>().objDistance += (float)0.1;
         }
     }
-
 }
