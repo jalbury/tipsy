@@ -5,13 +5,13 @@ using UnityEngine;
 public class TapTrigger : MonoBehaviour {
     public string label;
     private TapManager manager;
-    private ParticleSystem particleSystem;
+    private ParticleSystem liquidFlow;
 
     private void Start()
     {
         manager = GetComponentInParent<TapManager>();
-        particleSystem = transform.Find("Particle System").GetComponent<ParticleSystem>();
-        particleSystem.Stop();
+        liquidFlow = transform.Find("Particle System").GetComponent<ParticleSystem>();
+        liquidFlow.Stop();
     }
 
     public void onHover()
@@ -21,6 +21,11 @@ public class TapTrigger : MonoBehaviour {
 
     public void onClick()
     {
-        particleSystem.Play();
+        liquidFlow.Play();
+    }
+
+    public void onUnclick()
+    {
+        liquidFlow.Stop();
     }
 }

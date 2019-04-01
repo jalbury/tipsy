@@ -5380,8 +5380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e650a6a787084944954154fee321124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  male: {fileID: 1191085679065868, guid: ca9858f7ae7494e5ea9b8cf86c6cf73e, type: 2}
-  female: {fileID: 1466832644301054, guid: f1c575063455c4463b5d2c9115b9d1c1, type: 2}
+  male: {fileID: 1284403431854514, guid: ca9858f7ae7494e5ea9b8cf86c6cf73e, type: 2}
+  female: {fileID: 1213949365797290, guid: f1c575063455c4463b5d2c9115b9d1c1, type: 2}
   waitBeforeEnding: 3
   seats:
   - {fileID: 1601328814}

@@ -35,7 +35,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/StartMenu.unity
     guid: 14acbb9de06d94da4b37268f574a6897
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/StartMenu_WIP.unity
     guid: ac4a2be050f09447db7cbe14b3b51cea
   - enabled: 0
@@ -50,7 +50,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/2-Beers.unity
     guid: 679593f3d5181304691702aad30981ea
   m_configObjects: {}

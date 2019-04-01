@@ -23,6 +23,8 @@ public class RaycastPointer : MonoBehaviour
     private OnHoverScript ohs = null;
     private bool wasHovering = false;
     private bool isHovering = false;
+    private bool tapDispensing = false;
+    private TapTrigger tapTrigger = null;
     Queue<Vector3> recentPositions = new Queue<Vector3>();
 
     // initializes anchors and line renderer
@@ -77,6 +79,22 @@ public class RaycastPointer : MonoBehaviour
 
     void Update()
     {
+        if (tapDispensing)
+        {
+            // if tap is dispensing and player takes finger off trigger, stop dispensing
+            if (!OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+            {
+                tapTrigger.onUnclick();
+                lineRenderer.enabled = true;
+                tapDispensing = false;
+            }
+            // otherwise, do nothing to let the tap keep dispensing
+            else
+            {
+                return;
+            }
+        }
+
         Transform pointer = Pointer;
         if (pointer == null)
         {
@@ -310,17 +328,19 @@ public class RaycastPointer : MonoBehaviour
                 // indicate that we are hovering over object that we can click
                 onPickupableObject = true;
 
-                TapTrigger m = hit.collider.gameObject.GetComponent<TapTrigger>();
+                tapTrigger = hit.collider.gameObject.GetComponent<TapTrigger>();
                 // if we can click this button and the trigger is down, click it
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
                 {
-                    m.onClick();
+                    tapTrigger.onClick();
                     canPickupObject = false;
+                    tapDispensing = true;
+                    lineRenderer.enabled = false;
                 }
                 // otherwise, call on hover
                 else
                 {
-                    m.onHover();
+                    tapTrigger.onHover();
                 }
             }
             // otherwise, reset pointer color and indicate that we can't 
