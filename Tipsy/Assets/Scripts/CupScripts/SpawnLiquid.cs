@@ -2,19 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class SpawnLiquid : MonoBehaviour {
     
     public Transform Spawnpoint;
     public int maxSpheres = 150;
+    public float maxLiquid = .08f;
     public int spheresPerOz = 25;
+
+    int liquidAmount;
+    int maxVolume;
+
+    public TextMesh boardMesh;
+    public GameObject liquidThreshold;
+
     //public Rigidbody Prefab;
     int count = 0;
     private Dictionary<string, int> liquids;
 
+
     private void Start()
     {
         liquids = new Dictionary<string, int>();
+        liquidAmount = 0;
+        maxVolume = 1000;
     }
 
     public void spawnObject(Rigidbody Prefab)
@@ -53,6 +65,40 @@ public class SpawnLiquid : MonoBehaviour {
         RigidPrefab.transform.parent = gameObject.transform;
     }  
 
+    public void fillCylinder(Rigidbody Prefab, Color liquidColor)
+    {
+        if (liquidAmount >= maxVolume)
+        {
+            print("too much");
+            return;
+
+        }
+
+        liquidAmount++;
+        if (liquids.ContainsKey(Prefab.tag))
+            liquids[Prefab.tag]++;
+        else
+        {
+            liquids.Add(Prefab.tag, 1);
+        }
+
+        float curLiqAmount= (float)liquids[Prefab.tag] / DataManager.heightPerOz();
+        boardMesh.text = Math.Round(curLiqAmount, 2).ToString() + " oz";
+
+        liquidThreshold.transform.localScale += new Vector3(0, DataManager.heightPerOz(),0);
+        liquidThreshold.transform.position += new Vector3(0, DataManager.heightPerOz() / 2.0f, 0);
+
+        if (count == 0)
+        {
+            liquidThreshold.GetComponent<Renderer>().material.color = liquidColor;
+
+        }
+        else
+            liquidThreshold.GetComponent<Material>().color = Color.Lerp(liquidThreshold.GetComponent<Material>().color,
+                liquidColor, 1.0f / liquidAmount);
+
+
+    }
     public Dictionary<string, int> getLiquids()
     {
         return liquids; 
