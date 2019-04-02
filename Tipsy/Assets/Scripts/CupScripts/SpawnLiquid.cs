@@ -86,14 +86,15 @@ public class SpawnLiquid : MonoBehaviour {
         boardMesh.text = Math.Round(curLiqAmount, 2).ToString() + " oz";
 
         liquidThreshold.transform.localScale += new Vector3(0, DataManager.heightPerOz(),0);
-        liquidThreshold.transform.position += new Vector3(0, DataManager.heightPerOz() / 2.0f, 0);
+        liquidThreshold.transform.position += new Vector3(0, DataManager.heightPerOz(), 0);
 
         if (liquidAmount <= 1)
         {
+            print("Error");
             liquidThreshold.GetComponent<Renderer>().material.color = liquidColor;
         }
         else
-            liquidThreshold.GetComponent<Material>().color = Color.Lerp(liquidThreshold.GetComponent<Material>().color,
+            liquidThreshold.GetComponent<Renderer>().material.color = Color.Lerp(liquidThreshold.GetComponent<Renderer>().material.color,
                 liquidColor, 1.0f / liquidAmount);
 
 
