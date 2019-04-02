@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4464652321003780}
   - component: {fileID: 54801132193947752}
   - component: {fileID: 114651498923185220}
+  - component: {fileID: 65491026342766298}
   m_Layer: 0
   m_Name: Rum
   m_TagString: Untagged
@@ -172,12 +173,24 @@ MeshCollider:
   m_GameObject: {fileID: 1934760679998018}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2a954b5aad1abc84e8a905890c73edc6, type: 3}
+--- !u!65 &65491026342766298
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076260645394418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17000002, y: 0.5757905, z: 0.22}
+  m_Center: {x: 0.25, y: -0.03210479, z: -0.10000001}
 --- !u!114 &114651498923185220
 MonoBehaviour:
   m_ObjectHideFlags: 1
