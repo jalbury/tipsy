@@ -5,6 +5,8 @@ using UnityEngine;
 public class BottleManager : MonoBehaviour 
 {
     public float waitTimeUntilDestroy = 5.0f;
+    public float minPourRate = 50f;
+    public float maxPourRate = 200f;
     bool emissionState;
     double pourThreshold;
     public ParticleSystem liquidFlow;
@@ -23,12 +25,18 @@ public class BottleManager : MonoBehaviour
     }
     private void Update()
     {
-        if (!emissionState && isTipped())
+        bool tipped = isTipped();
+        if (tipped)
         {
-            emissionState = true;
-            liquidFlow.Play();
+            var emission = liquidFlow.emission;
+            emission.rateOverTime = getPourRate();
+            if (!emissionState)
+            {
+                emissionState = true;
+                liquidFlow.Play();
+            }
         }
-        if(emissionState && !isTipped())
+        else if (emissionState)
         {
             emissionState = false;
             liquidFlow.Stop();
@@ -48,6 +56,21 @@ public class BottleManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private float getPourRate()
+    {
+        float xRot = Mathf.Abs(transform.rotation.x);
+        float zRot = Mathf.Abs(transform.rotation.z);
+        float rot = Mathf.Max(xRot, zRot);
+        return MapInterval(rot, (float)pourThreshold, 1f, minPourRate, maxPourRate);
+    }
+
+    private float MapInterval(float val, float srcMin, float srcMax, float dstMin, float dstMax)
+    {
+        if (val >= srcMax) return dstMax;
+        if (val <= srcMin) return dstMin;
+        return dstMin + (val - srcMin) / (srcMax - srcMin) * (dstMax - dstMin);
     }
 
 }
