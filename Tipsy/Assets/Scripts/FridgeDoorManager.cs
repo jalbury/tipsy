@@ -15,6 +15,7 @@ public class FridgeDoorManager : MonoBehaviour {
     private bool closeDoor;
     private bool openDoor;
     private bool isClosed = true;
+    public GameObject dispenseObject;
 
     private void Start()
     {
@@ -66,7 +67,7 @@ public class FridgeDoorManager : MonoBehaviour {
         numFramesSinceHovering = 0;
     }
 
-    public void onClick()
+    public GameObject onClick()
     {
         if (openDoor || closeDoor)
             currentAngle = 90f - currentAngle;
@@ -77,13 +78,13 @@ public class FridgeDoorManager : MonoBehaviour {
             isClosed = false;
             openDoor = true;
             closeDoor = false;
+            return null;
         }
-        else
-        {
-            isClosed = true;
-            closeDoor = true;
-            openDoor = false;
-        }
+
+        isClosed = true;
+        closeDoor = true;
+        openDoor = false;
+        return (GameObject)Instantiate(dispenseObject);
     }
 
     IEnumerator autoShut()

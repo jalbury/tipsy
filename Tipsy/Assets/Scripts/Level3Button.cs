@@ -39,6 +39,7 @@ public class Level3Button : MonoBehaviour
     public void onClick()
     {
         rend.material = clickMat;
+        return;
         SceneManager.LoadScene("Level_3_Name");	
 	}
 }

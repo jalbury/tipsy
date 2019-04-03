@@ -26,6 +26,7 @@ public class RaycastPointer : MonoBehaviour
     private bool isHovering = false;
     private bool tapDispensing = false;
     private TapTrigger tapTrigger = null;
+    private bool isBeerBottle;
     Queue<Vector3> recentPositions = new Queue<Vector3>();
 
     private void Start()
@@ -129,7 +130,9 @@ public class RaycastPointer : MonoBehaviour
             rb.MovePosition(laserPointer.origin + laserPointer.direction * objDistance);
 
             if (isCup)
-                rb.MoveRotation(Quaternion.Euler(-90, 0, 0));
+                rb.MoveRotation(Quaternion.Euler(-90, 90, 0));
+            else if (isBeerBottle)
+                rb.MoveRotation(Quaternion.identity);
             else
                 rb.MoveRotation(pointer.rotation);
 
@@ -307,7 +310,12 @@ public class RaycastPointer : MonoBehaviour
                 // if we can click this button and the trigger is down, click it
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
                 {
-                    m.onClick();
+                    GameObject retval = m.onClick();
+                    if (retval != null)
+                    {
+                        pickupObject(retval);
+                        isBeerBottle = true;
+                    }
                     canPickupObject = false;
                 }
                 // otherwise, call on hover
@@ -572,7 +580,7 @@ public class RaycastPointer : MonoBehaviour
         lineRenderer.enabled = true;
 
         // if we were holding a cup, let CupManager handle it
-        if (isCup)
+        if (isCup || isBeerBottle)
         {
             if (pickedUpObject.GetComponent<CupManager>().release())
             {
@@ -585,6 +593,7 @@ public class RaycastPointer : MonoBehaviour
                 recentPositions.Clear();
             }
             isCup = false;
+            isBeerBottle = false;
         }
         // if we're holding anything else, just throw it
         else

@@ -90,6 +90,7 @@ public class CupManager : MonoBehaviour {
         if (!onBarSeat)
             return true;
 
+        GetComponent<Rigidbody>().isKinematic = true;
         released = true;
         // ensure cup can't be picked up while it's in motion
         canPickMeUp = false;

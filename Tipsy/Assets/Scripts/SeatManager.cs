@@ -113,20 +113,29 @@ public class SeatManager : MonoBehaviour
         {
             arrived = false;
             int score = 0;
-            Dictionary<string, int> liquids = cup.GetComponent<SpawnLiquid>().getLiquids();
 
-            foreach(KeyValuePair<string, int> entry in liquids)
+            if (cup.tag == "isCupThreshold")
             {
-                if (!customerOrder.contents.ContainsKey(entry.Key))
+                Dictionary<string, int> liquids = cup.GetComponent<SpawnLiquid>().getLiquids();
+
+                foreach (KeyValuePair<string, int> entry in liquids)
                 {
-                    score = 0;
-                    break;
+                    if (!customerOrder.contents.ContainsKey(entry.Key))
+                    {
+                        score = 0;
+                        break;
+                    }
+                    float correctAmt = customerOrder.contents[entry.Key];
+                    float actualAmt = entry.Value * DataManager.ozPerParticle();
+                    float accuracyMultiplier = 1 - (Mathf.Abs(correctAmt - actualAmt) / correctAmt);
+                    float timeMultiplier = 1 + (timeLeft / timer);
+                    score += (int)(baseScore * timeMultiplier * accuracyMultiplier);
                 }
-                float correctAmt = customerOrder.contents[entry.Key];
-                float actualAmt = entry.Value * DataManager.ozPerParticle();
-                float accuracyMultiplier = 1 - (Mathf.Abs(correctAmt - actualAmt) / correctAmt);
+            }
+            else if (customerOrder.container == "Bottle" && customerOrder.contents.ContainsKey(cup.tag))
+            {
                 float timeMultiplier = 1 + (timeLeft / timer);
-                score = (int)(baseScore * timeMultiplier * accuracyMultiplier);
+                score = (int)(baseScore * timeMultiplier);
             }
 
             customer.transform.GetChild(1).GetComponent<TextMesh>().text = "+ " + score;

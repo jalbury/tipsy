@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4881719033943618}
   - component: {fileID: 54578800339356454}
   - component: {fileID: 64900878704186936}
+  - component: {fileID: 114108185531548496}
   m_Layer: 0
   m_Name: Ale
-  m_TagString: Untagged
+  m_TagString: Ale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +203,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &64559194486247304
 MeshCollider:
@@ -232,3 +233,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!114 &114108185531548496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211910363938606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b7b4abd16ba442aba4a59a58b7e8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRayDistance: 500
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  speed: 2

@@ -362,7 +362,7 @@ Transform:
   m_LocalScale: {x: 0.15459, y: 0, z: 0.15459}
   m_Children: []
   m_Father: {fileID: 4602220856802514}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4512933794940530
 Transform:
@@ -383,16 +383,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902626011312898}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 20.209253, y: 2.293, z: -2.4846249}
+  m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1.2, y: 1.1999962, z: 1.1999962}
   m_Children:
   - {fileID: 4991154337229824}
-  - {fileID: 224823119407781178}
   - {fileID: 4297312806687358}
+  - {fileID: 224823119407781178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
 --- !u!4 &4991154337229824
 Transform:
   m_ObjectHideFlags: 1
@@ -1403,19 +1403,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1240452687979340}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0.188}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.02}
+  m_LocalRotation: {x: 0.7069834, y: -0.00012338161, z: 0.00012341142, w: 0.70723015}
+  m_LocalPosition: {x: 0, y: 0, z: 0.18808761}
+  m_LocalScale: {x: 0.0299999, y: 0.029999988, z: 0.020000063}
   m_Children:
   - {fileID: 224821765485134234}
   - {fileID: 224720224014705668}
   - {fileID: 224101422366407590}
   m_Father: {fileID: 4602220856802514}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0.020000001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.251}
+  m_AnchoredPosition: {x: 0.2508333, y: 0.00006563982}
   m_SizeDelta: {x: 10, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224851424626198458

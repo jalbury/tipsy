@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Unused/TestScene.unity
     guid: 43a2403100a9340619c4f13e6e733dbf
   - enabled: 0
-    path: Assets/Visual Models/9t5 Low Poly Pub Pack/Scenes/Demo Scene.unity
+    path: Assets/Scenes/Demo Scene.unity
     guid: f365d3397be1c7b4d89342b499edabd7
   - enabled: 0
     path: 
@@ -50,7 +50,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Levels/2-Beers.unity
     guid: 679593f3d5181304691702aad30981ea
   - enabled: 1

@@ -34,6 +34,10 @@ TagManager:
   - Level4Cube
   - Level5Cube
   - BackToMainManuCube
+  - Ale
+  - Lager
+  - Malt
+  - Stout
   layers:
   - Default
   - TransparentFX

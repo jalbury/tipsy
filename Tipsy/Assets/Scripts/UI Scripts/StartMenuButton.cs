@@ -8,23 +8,38 @@ public class StartMenuButton : MonoBehaviour {
 	public Material defaultMat;
 	public Material hoverMat;
 	public Material clickMat;
+    private int numFramesSinceHovering;
+    private MeshRenderer rend;
 
-	public void onHover()
-	{
-		this.GetComponent<MeshRenderer>().material = hoverMat;
-	}
+    private void Start()
+    {
+        rend = GetComponent<MeshRenderer>();
+        rend.enabled = false;
+    }
 
-	public void onDefault()
-	{
-		this.GetComponent<MeshRenderer>().material = defaultMat;
-	}
+    private void Update()
+    {
+        numFramesSinceHovering++;
+        if (numFramesSinceHovering >= 5)
+            onDefault();
+    }
 
-	public void onClick()
-	{
-		this.GetComponent<MeshRenderer>().material = clickMat;
+    public void onHover()
+    {
+        numFramesSinceHovering = 0;
+        rend.material = hoverMat;
+        rend.enabled = true;
+    }
 
-        // Loads Main Menu Scene
-		SceneManager.LoadScene("StartMenu");
+    public void onDefault()
+    {
+        rend.enabled = false;
+    }
+
+    public void onClick()
+    {
+        rend.material = clickMat;
+        SceneManager.LoadScene("StartMenu");
 	}
 }
 

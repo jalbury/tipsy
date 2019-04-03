@@ -38,9 +38,10 @@ GameObject:
   - component: {fileID: 4197890801178672}
   - component: {fileID: 54013421231086894}
   - component: {fileID: 64852559391701614}
+  - component: {fileID: 114967285692347498}
   m_Layer: 0
   m_Name: Lager
-  m_TagString: Untagged
+  m_TagString: Lager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +203,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &64357289692538570
 MeshCollider:
@@ -226,9 +227,25 @@ MeshCollider:
   m_GameObject: {fileID: 1380722389269474}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!114 &114967285692347498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380722389269474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b7b4abd16ba442aba4a59a58b7e8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRayDistance: 500
+  excludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  speed: 2

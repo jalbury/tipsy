@@ -95,6 +95,9 @@ public class SpawnLiquid : MonoBehaviour {
             return;
         }
 
+        heightPerParticle = heightPerOz * DataManager.ozPerParticle();
+        maxParticles = (int)(maxOz / DataManager.ozPerParticle());
+
         fillMeter.SetActive(true);
 
         liquidText.text = Prefab.tag;

@@ -39,6 +39,10 @@ public class Level1Button : MonoBehaviour
     public void onClick()
 	{
         rend.material = clickMat;
-		SceneManager.LoadScene("1-Shots");	
+        LevelData levelData;
+        levelData.difficultyLevels = new int[6] { 1, 1, 1, 1, 1, 1 };
+        levelData.timeBetweenSpawns = 30;
+        DataManager.setLevelData(levelData);
+        SceneManager.LoadScene("GameScene");	
 	}
 }
