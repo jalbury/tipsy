@@ -8,19 +8,39 @@ public class QuitCubeButton : MonoBehaviour
 	public Material defaultMat;
 	public Material hoverMat;
 	public Material clickMat;
+    private int numFramesSinceHovering;
+    private MeshRenderer rend;
 
-	public void onHover()
-	{
-		this.GetComponent<MeshRenderer>().material = hoverMat;
-	}
+    private void Start()
+    {
+        rend = GetComponent<MeshRenderer>();
+        rend.enabled = false;
+    }
 
-	public void onDefault()
+    private void Update()
+    {
+        numFramesSinceHovering++;
+        if (numFramesSinceHovering >= 5)
+            onDefault();
+    }
+
+    public void onHover()
+    {
+        numFramesSinceHovering = 0;
+        rend.material = hoverMat;
+        rend.enabled = true;
+    }
+
+    public void onDefault()
+    {
+        rend.enabled = false;
+    }
+
+    public void onClick()
 	{
-		this.GetComponent<MeshRenderer>().material = defaultMat;
-	}
-	public void onClick()
-	{
-		this.GetComponent<MeshRenderer>().material = clickMat;
+		rend.material = clickMat;
+        rend.enabled = true;
+
 		Application.Quit();
 	}
 

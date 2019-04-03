@@ -5,24 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class PlayCubeButton : MonoBehaviour
 {
-
 	public Material defaultMat;
 	public Material hoverMat;
 	public Material clickMat;
+    private int numFramesSinceHovering;
+    private MeshRenderer rend;
 
-	public void onHover()
+    private void Start()
+    {
+        rend = GetComponent<MeshRenderer>();
+        rend.enabled = false;
+    }
+
+    private void Update()
+    {
+        numFramesSinceHovering++;
+        if (numFramesSinceHovering >= 5)
+            onDefault();
+    }
+
+    public void onHover()
 	{
-		this.GetComponent<MeshRenderer>().material = hoverMat;
+        numFramesSinceHovering = 0;
+        rend.material = hoverMat;
+        rend.enabled = true;
 	}
 
 	public void onDefault()
 	{
-		this.GetComponent<MeshRenderer>().material = defaultMat;
+        rend.enabled = false;
 	}
 
 	public void onClick()
 	{
-		this.GetComponent<MeshRenderer>().material = clickMat;
+		rend.material = clickMat;
+        rend.enabled = true;
 
         // get data for first level (for multiple levels, this should be added
         // to the onclick for whatever button launches a specific level)
