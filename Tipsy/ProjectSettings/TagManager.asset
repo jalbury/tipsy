@@ -27,6 +27,13 @@ TagManager:
   - MaleHead
   - door
   - tap
+  - levelSelectCube
+  - Level1Cube
+  - Level2Cube
+  - Level3Cube
+  - Level4Cube
+  - Level5Cube
+  - BackToMainManuCube
   layers:
   - Default
   - TransparentFX
