@@ -551,9 +551,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &64094918102725768
 MeshCollider:
@@ -984,7 +984,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   speed: 2
-  tableTop: {fileID: 1564380735450998, guid: 974fef0f0534144c5bcbbb958170c56f, type: 2}
 --- !u!114 &114977628187294464
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -80,6 +80,8 @@ public class SpawnLiquid : MonoBehaviour {
             return;
         }
 
+        fillMeter.SetActive(true);
+
         liquidText.text = Prefab.tag;
 
         liquidAmount++;
