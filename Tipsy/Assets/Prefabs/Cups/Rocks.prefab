@@ -1019,7 +1019,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawnpoint: {fileID: 4512933794940530}
   maxSpheres: 150
-  maxLiquid: 0.08
+  maxHeight: 0.055
+  maxOz: 6
   spheresPerOz: 25
   liquidThreshold: {fileID: 1892768947022458}
 --- !u!114 &114870561662395754

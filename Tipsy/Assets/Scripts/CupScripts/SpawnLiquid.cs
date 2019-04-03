@@ -8,11 +8,14 @@ public class SpawnLiquid : MonoBehaviour {
     
     public Transform Spawnpoint;
     public int maxSpheres = 150;
-    public float maxLiquid = .08f;
+    public float maxHeight = .055f;
+    public float maxOz = 6f;
     public int spheresPerOz = 25;
+    private float heightPerOz;
+    private float heightPerParticle;
 
     int liquidAmount;
-    int maxVolume;
+    int maxParticles;
 
     public GameObject liquidThreshold;
     private GameObject fillMeter;
@@ -33,7 +36,9 @@ public class SpawnLiquid : MonoBehaviour {
         slider.value = 0f;
         liquidText.text = "";
         liquidAmount = 0;
-        maxVolume = 1000;
+        heightPerOz = maxHeight / maxOz;
+        heightPerParticle = heightPerOz * DataManager.ozPerParticle();
+        maxParticles = (int)(maxOz / DataManager.ozPerParticle());
     }
 
     public void spawnObject(Rigidbody Prefab)
@@ -74,7 +79,7 @@ public class SpawnLiquid : MonoBehaviour {
 
     public void fillCylinder(Rigidbody Prefab, Color liquidColor)
     {
-        if (liquidAmount >= maxVolume)
+        if (liquidAmount >= maxParticles)
         {
             print("too much");
             return;
@@ -92,12 +97,12 @@ public class SpawnLiquid : MonoBehaviour {
             liquids.Add(Prefab.tag, 1);
         }
 
-        float curLiqAmount= (float)liquids[Prefab.tag] / DataManager.spheresPerOz();
+        float curLiqAmount= (float)liquids[Prefab.tag] * DataManager.ozPerParticle();
         // boardMesh.text = Math.Round(curLiqAmount, 2).ToString() + " oz";
         slider.value = curLiqAmount;
 
-        liquidThreshold.transform.localScale += new Vector3(0, DataManager.heightPerOz(),0);
-        liquidThreshold.transform.position += new Vector3(0, DataManager.heightPerOz(), 0);
+        liquidThreshold.transform.localScale += new Vector3(0, heightPerParticle,0);
+        liquidThreshold.transform.position += new Vector3(0, heightPerParticle, 0);
 
         if (liquidAmount <= 1)
         {

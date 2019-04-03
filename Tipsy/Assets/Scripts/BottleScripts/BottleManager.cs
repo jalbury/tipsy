@@ -28,8 +28,8 @@ public class BottleManager : MonoBehaviour
         bool tipped = isTipped();
         if (tipped)
         {
-            var emission = liquidFlow.emission;
-            emission.rateOverTime = getPourRate();
+            //var emission = liquidFlow.emission;
+            //emission.rateOverTime = getPourRate();
             if (!emissionState)
             {
                 emissionState = true;
