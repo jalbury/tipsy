@@ -13,10 +13,9 @@ public class SpawnLiquid : MonoBehaviour {
     public int spheresPerOz = 25;
     private float heightPerOz;
     private float heightPerParticle;
-
     int liquidAmount;
     int maxParticles;
-
+    private int numFramesSinceFilling;
     public GameObject liquidThreshold;
     private GameObject fillMeter;
     private Text liquidText;
@@ -39,6 +38,14 @@ public class SpawnLiquid : MonoBehaviour {
         heightPerOz = maxHeight / maxOz;
         heightPerParticle = heightPerOz * DataManager.ozPerParticle();
         maxParticles = (int)(maxOz / DataManager.ozPerParticle());
+        fillMeter.SetActive(false);
+    }
+
+    private void Update()
+    { 
+        numFramesSinceFilling++;
+        if (numFramesSinceFilling >= 40)
+            fillMeter.SetActive(false);
     }
 
     public void spawnObject(Rigidbody Prefab)
@@ -79,6 +86,9 @@ public class SpawnLiquid : MonoBehaviour {
 
     public void fillCylinder(Rigidbody Prefab, Color liquidColor)
     {
+        fillMeter.SetActive(true);
+        numFramesSinceFilling = 0;
+
         if (liquidAmount >= maxParticles)
         {
             print("too much");

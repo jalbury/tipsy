@@ -123,11 +123,12 @@ public class SeatManager : MonoBehaviour
                     break;
                 }
                 float correctAmt = customerOrder.contents[entry.Key];
-                float actualAmt = entry.Value / DataManager.spheresPerOz();
+                float actualAmt = entry.Value * DataManager.ozPerParticle();
                 float accuracyMultiplier = 1 - (Mathf.Abs(correctAmt - actualAmt) / correctAmt);
                 float timeMultiplier = 1 + (timeLeft / timer);
                 score = (int)(baseScore * timeMultiplier * accuracyMultiplier);
             }
+
             customer.transform.GetChild(1).GetComponent<TextMesh>().text = "+ " + score;
             DataManager.addToScore(score);
         }

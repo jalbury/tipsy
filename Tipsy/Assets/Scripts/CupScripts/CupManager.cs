@@ -12,9 +12,6 @@ public class CupManager : MonoBehaviour {
     private float yOffset;
     private Vector3 offset;
     private bool released = false;
-    private GameObject fillMeter;
-    private Text liquidText;
-    private Slider slider;
 
     // UNCOMMENT TO DEBUG:
     // private LineRenderer lineRenderer;
@@ -30,13 +27,6 @@ public class CupManager : MonoBehaviour {
 
         yOffset = gameObject.GetComponent<MeshFilter>().mesh.bounds.extents.y + 0.025f;
         offset = new Vector3(0, yOffset, 0);
-
-        fillMeter = transform.Find("Drink Fill Meter UI").gameObject;
-        slider = fillMeter.transform.Find("Slider").GetComponent<Slider>();
-        liquidText = fillMeter.transform.Find("UI Name").GetComponent<Text>();
-
-        // turn off volume billboard initially
-        fillMeter.SetActive(false);
     }
 
     void Update () 
@@ -112,9 +102,6 @@ public class CupManager : MonoBehaviour {
 
     public bool canPickup()
     {
-        // turn off volume billboard when cup is going to be picked up
-        fillMeter.SetActive(false);
-
         return canPickMeUp;
     }
 
