@@ -125,21 +125,15 @@ public class RaycastPointer : MonoBehaviour
             // keep track of position for only last 10 frames
             if (recentPositions.Count >= 10)
                 recentPositions.Dequeue();
-                
-            // if the object picked up is a cup, manipulate transform directly
+
+            rb.MovePosition(laserPointer.origin + laserPointer.direction * objDistance);
+
             if (isCup)
-            {
-                pickedUpObject.transform.position = laserPointer.origin + laserPointer.direction * objDistance;
-                pickedUpObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
-                recentPositions.Enqueue(pickedUpObject.transform.position);
-            }
-            // otherwise, use rigid body for built-in physics
+                rb.MoveRotation(Quaternion.Euler(-90, 0, 0));
             else
-            {
-                rb.MovePosition(laserPointer.origin + laserPointer.direction * objDistance);
                 rb.MoveRotation(pointer.rotation);
-                recentPositions.Enqueue(rb.position);
-            }
+
+            recentPositions.Enqueue(rb.position);
 
             return;
         }
@@ -394,17 +388,13 @@ public class RaycastPointer : MonoBehaviour
         pickedUpObject = obj;
         objDistance = startDistance;
 
+        rb = pickedUpObject.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.angularVelocity = Vector3.zero;
+        throwing = false;
+
         // check if picked up object is cup
         isCup = (obj.tag == "isCupThreshold");
-
-        // use rigid body if object is not a cup
-        if (!isCup)
-        {
-            rb = pickedUpObject.GetComponent<Rigidbody>();
-            rb.useGravity = false;
-            rb.angularVelocity = Vector3.zero;
-            throwing = false;
-        }
     }
 
     void dropObject()
@@ -416,9 +406,16 @@ public class RaycastPointer : MonoBehaviour
         // if we were holding a cup, let CupManager handle it
         if (isCup)
         {
-            pickedUpObject.GetComponent<CupManager>().release();
-            throwing = false;
-            recentPositions.Clear();
+            if (pickedUpObject.GetComponent<CupManager>().release())
+            {
+                rb.useGravity = true;
+                throwing = true;
+            }
+            else
+            {
+                throwing = false;
+                recentPositions.Clear();
+            }
             isCup = false;
         }
         // if we're holding anything else, just throw it

@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CupManager : MonoBehaviour {
     public float maxRayDistance = 500.0f;
     public LayerMask excludeLayers;
     public float speed = 0.5f;
-    public GameObject tableTop = null;
     private Vector3 target;
     private GameObject hitObj = null;
     private bool canPickMeUp = true;
@@ -14,6 +12,9 @@ public class CupManager : MonoBehaviour {
     private float yOffset;
     private Vector3 offset;
     private bool released = false;
+    private GameObject fillMeter;
+    private Text liquidText;
+    private Slider slider;
 
     // UNCOMMENT TO DEBUG:
     // private LineRenderer lineRenderer;
@@ -30,8 +31,12 @@ public class CupManager : MonoBehaviour {
         yOffset = gameObject.GetComponent<MeshFilter>().mesh.bounds.extents.y + 0.025f;
         offset = new Vector3(0, yOffset, 0);
 
+        fillMeter = transform.Find("Drink Fill Meter UI").gameObject;
+        slider = fillMeter.transform.Find("Slider").GetComponent<Slider>();
+        liquidText = fillMeter.transform.Find("UI Name").GetComponent<Text>();
+
         // turn off volume billboard initially
-        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        fillMeter.SetActive(false);
     }
 
     void Update () 
@@ -46,18 +51,7 @@ public class CupManager : MonoBehaviour {
             if (Vector3.Distance(transform.position, target) < 0.2f)
             {
                 released = false;
-
-                if (onBarSeat)
-                {
-                    hitObj.GetComponent<SeatManager>().serve(this.gameObject);
-                }
-                else
-                {
-                    // turn volume billboard on when put on bartender table
-                    gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                    gameObject.transform.GetChild(1).GetChild(0).GetComponent<TextMesh>().text = "0 oz";
-                    canPickMeUp = true;
-                }
+                hitObj.GetComponent<SeatManager>().serve(this.gameObject);
             }
 
             return;
@@ -101,32 +95,25 @@ public class CupManager : MonoBehaviour {
     // cup should not be thrown if it is hovered over bar seat; in that case, it
     // should be served. 
     // otherwise, cup should be thrown otherwise
-    public void release()
+    public bool release()
     {
+        if (!onBarSeat)
+            return true;
+
         released = true;
         // ensure cup can't be picked up while it's in motion
         canPickMeUp = false;
-
-        if (onBarSeat)
-        {
-            // get position to move towards to serve drink
-            target = hitObj.transform.GetChild(0).transform.position;
-            // pause timer for customer
-            hitObj.GetComponent<SeatManager>().pauseTimer();
-        }
-        else
-        {
-            // get position to move to for the table: the center of the table w.r.t.
-            // depth, the top of the table w.r.t. height, at the cup's current z pos
-            Vector3 tablePos = tableTop.transform.position;
-            target = new Vector3(tablePos.x, tablePos.y, transform.position.z);
-        }
+        // get position to move towards to serve drink
+        target = hitObj.transform.GetChild(0).transform.position;
+        // pause timer for customer
+        hitObj.GetComponent<SeatManager>().pauseTimer();
+        return false;
     }
 
     public bool canPickup()
     {
         // turn off volume billboard when cup is going to be picked up
-        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        fillMeter.SetActive(false);
 
         return canPickMeUp;
     }

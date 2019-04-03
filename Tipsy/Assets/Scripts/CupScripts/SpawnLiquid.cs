@@ -14,8 +14,10 @@ public class SpawnLiquid : MonoBehaviour {
     int liquidAmount;
     int maxVolume;
 
-    public TextMesh boardMesh;
     public GameObject liquidThreshold;
+    private GameObject fillMeter;
+    private Text liquidText;
+    private Slider slider;
 
     //public Rigidbody Prefab;
     int count = 0;
@@ -25,6 +27,11 @@ public class SpawnLiquid : MonoBehaviour {
     private void Start()
     {
         liquids = new Dictionary<string, int>();
+        fillMeter = transform.Find("Drink Fill Meter UI").gameObject;
+        slider = fillMeter.transform.Find("Slider").GetComponent<Slider>();
+        liquidText = fillMeter.transform.Find("UI Name").GetComponent<Text>();
+        slider.value = 0f;
+        liquidText.text = "";
         liquidAmount = 0;
         maxVolume = 1000;
     }
@@ -71,8 +78,11 @@ public class SpawnLiquid : MonoBehaviour {
         {
             print("too much");
             return;
-
         }
+
+        fillMeter.SetActive(true);
+
+        liquidText.text = Prefab.tag;
 
         liquidAmount++;
         if (liquids.ContainsKey(Prefab.tag))
@@ -82,8 +92,9 @@ public class SpawnLiquid : MonoBehaviour {
             liquids.Add(Prefab.tag, 1);
         }
 
-        float curLiqAmount= (float)liquids[Prefab.tag] / DataManager.heightPerOz();
-        boardMesh.text = Math.Round(curLiqAmount, 2).ToString() + " oz";
+        float curLiqAmount= (float)liquids[Prefab.tag] / DataManager.spheresPerOz();
+        // boardMesh.text = Math.Round(curLiqAmount, 2).ToString() + " oz";
+        slider.value = curLiqAmount;
 
         liquidThreshold.transform.localScale += new Vector3(0, DataManager.heightPerOz(),0);
         liquidThreshold.transform.position += new Vector3(0, DataManager.heightPerOz(), 0);
@@ -96,8 +107,6 @@ public class SpawnLiquid : MonoBehaviour {
         else
             liquidThreshold.GetComponent<Renderer>().material.color = Color.Lerp(liquidThreshold.GetComponent<Renderer>().material.color,
                 liquidColor, 1.0f / liquidAmount);
-
-
     }
     public Dictionary<string, int> getLiquids()
     {
