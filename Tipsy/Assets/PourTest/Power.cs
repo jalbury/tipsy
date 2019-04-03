@@ -8,7 +8,6 @@ public class Power : MonoBehaviour {
 
     public void OnMouseUpAsButton()
     {
-
-        //audioManager.
+        audioManager.GetComponent<AudioManager>().toggleMute();
     }
 }
