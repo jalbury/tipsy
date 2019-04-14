@@ -38,6 +38,7 @@ TagManager:
   - Lager
   - Malt
   - Stout
+  - ResumeCube
   layers:
   - Default
   - TransparentFX
