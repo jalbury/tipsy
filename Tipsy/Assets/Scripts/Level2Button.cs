@@ -41,7 +41,8 @@ public class Level2Button : MonoBehaviour
         rend.material = clickMat;
         LevelData levelData;
         levelData.difficultyLevels = new int[8] { 2, 3, 1, 2, 3, 2, 1, 3 };
-        levelData.timeBetweenSpawns = 30;
+        levelData.minSpawnTime = 15;
+        levelData.maxSpawnTime = 35;
         DataManager.setLevelData(levelData);
         SceneManager.LoadScene("2-Beers");	
 	}

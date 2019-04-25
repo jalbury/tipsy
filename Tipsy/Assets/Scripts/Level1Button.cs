@@ -41,7 +41,8 @@ public class Level1Button : MonoBehaviour
         rend.material = clickMat;
         LevelData levelData;
         levelData.difficultyLevels = new int[6] { 1, 1, 1, 1, 1, 1 };
-        levelData.timeBetweenSpawns = 30;
+        levelData.minSpawnTime = 15;
+        levelData.maxSpawnTime = 35;
         DataManager.setLevelData(levelData);
         SceneManager.LoadScene("GameScene");	
 	}

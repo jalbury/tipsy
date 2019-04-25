@@ -32,7 +32,8 @@ public struct DrinkOrder
 public class CustomerManager : MonoBehaviour
 {
     private int numberOfCustomers = 6;
-    private int secondsBetweenSpawns = 60;
+    private int minSpawnTime;
+    private int maxSpawnTime;
     public GameObject male = null;
     public GameObject female = null;
     public float waitBeforeEnding = 3.0f; 
@@ -50,7 +51,8 @@ public class CustomerManager : MonoBehaviour
         LevelData levelData = DataManager.getLevelData();
         numDifficultyLevels = levelData.difficultyLevels.Max();
         numberOfCustomers = levelData.difficultyLevels.Length;
-        secondsBetweenSpawns = levelData.timeBetweenSpawns;
+        minSpawnTime = levelData.minSpawnTime;
+        maxSpawnTime = levelData.maxSpawnTime;
         difficultyLevels = levelData.difficultyLevels;
 
         int numDrinks = drinks.Length;
@@ -96,10 +98,11 @@ public class CustomerManager : MonoBehaviour
         if (customersSpawned >= numberOfCustomers)
             yield break;
 
-        int wait_time = Random.Range(0, secondsBetweenSpawns);
+        // generate a wait time between minSpawnTime and maxSpawnTime (inclusive)
+        int wait_time = minSpawnTime + Random.Range(0, maxSpawnTime - minSpawnTime + 1);
         yield return new WaitForSeconds(wait_time);
 
-        // -- change when difficulty levels are passed to level ----
+        // get difficulty level for the current customer
         int difficulty = difficultyLevels[customersSpawned];
         // randomly choose drink with the given difficulty level
         int drinkIndex = Random.Range(0, drinksByDifficultyLevel[difficulty-1].Count);

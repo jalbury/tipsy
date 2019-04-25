@@ -5,7 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public struct LevelData
 {
-    public int timeBetweenSpawns;
+    public int minSpawnTime;
+    public int maxSpawnTime;
     public int[] difficultyLevels;
 }
 
