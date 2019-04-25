@@ -13,9 +13,6 @@ TagManager:
   - barSeat
   - cup
   - bartenderTable
-  - playCube
-  - quitCube
-  - mainMenuCube
   - isCupThreshold
   - Rum
   - Tequila
@@ -27,18 +24,12 @@ TagManager:
   - MaleHead
   - door
   - tap
-  - levelSelectCube
-  - Level1Cube
-  - Level2Cube
-  - Level3Cube
-  - Level4Cube
-  - Level5Cube
-  - BackToMainManuCube
   - Ale
   - Lager
   - Malt
   - Stout
   - ResumeCube
+  - physicalButton
   layers:
   - Default
   - TransparentFX

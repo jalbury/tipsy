@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class LevelSelectCubeButton : MonoBehaviour
-{
-	public Material defaultMat;
-	public Material hoverMat;
-	public Material clickMat;
+public class PhysicalButton : MonoBehaviour {
+    public Material defaultMat;
+    public Material hoverMat;
+    public Material clickMat;
     private int numFramesSinceHovering;
     private MeshRenderer rend;
 
@@ -36,9 +34,9 @@ public class LevelSelectCubeButton : MonoBehaviour
         rend.enabled = false;
     }
 
-    public void onClick()
-	{
+    public virtual void onClick()
+    {
         rend.material = clickMat;
-		SceneManager.LoadScene("LevelSelectScene");	
-	}
+        rend.enabled = true;
+    }
 }

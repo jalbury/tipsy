@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 322428179}
   m_Layer: 0
   m_Name: Level 5
-  m_TagString: Level5Cube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4343,7 +4343,7 @@ GameObject:
   - component: {fileID: 1343096577}
   m_Layer: 0
   m_Name: Level 2
-  m_TagString: Level2Cube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4486,7 +4486,7 @@ GameObject:
   - component: {fileID: 1440380156}
   m_Layer: 0
   m_Name: BackToMainMenu
-  m_TagString: BackToMainManuCube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5789,7 +5789,7 @@ GameObject:
   - component: {fileID: 1767049300}
   m_Layer: 0
   m_Name: Level 1
-  m_TagString: Level1Cube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5890,7 +5890,7 @@ GameObject:
   - component: {fileID: 1773306306}
   m_Layer: 0
   m_Name: Level 3
-  m_TagString: Level3Cube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6349,7 +6349,7 @@ GameObject:
   - component: {fileID: 1954831853}
   m_Layer: 0
   m_Name: Level 4
-  m_TagString: Level4Cube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

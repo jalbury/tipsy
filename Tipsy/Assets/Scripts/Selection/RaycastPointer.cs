@@ -217,80 +217,29 @@ public class RaycastPointer : MonoBehaviour
                 ohs = menuItem.GetComponent<OnHoverScript>();
                 ohs.OnHover();
             }
-            // check if we hit the play button on the main menu
-            else if (hit.collider.tag == "playCube")
+            // check if we hit a button
+            else if (hit.collider.tag == "physicalButton")
             {
                 lineRenderer.material.color = Color.green;
 
-                // if we were holding down the trigger before hovering over play button,
+                // if we were holding down the trigger before hovering over button,
                 // then we need to release the trigger before being able to click it
                 if (!onPickupableObject)
                     canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
                 else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
                     canPickupObject = true;
 
-                // indicate that we are hovering over item
+                // indicate that we are hovering over button
                 onPickupableObject = true;
 
-                GameObject menuItem = hit.collider.gameObject;
-                PlayCubeButton oss = menuItem.GetComponent<PlayCubeButton>();
+                PhysicalButton btn = hit.collider.gameObject.GetComponent<PhysicalButton>();
 
                 // if we can click this button and the trigger is down, click it
                 // otherwise, call onHover()
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
+                    btn.onClick();
                 else
-                    oss.onHover();
-            }
-            // check if we hit the MAin Menu button on the main menu
-            else if (hit.collider.tag == "mainMenuCube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over play button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                StartMenuButton oss = menuItem.GetComponent<StartMenuButton>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
-            }
-            // check if we hit the quit button on the main menu
-            else if (hit.collider.tag == "quitCube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                QuitCubeButton oss = menuItem.GetComponent<QuitCubeButton>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
+                    btn.onHover();
             }
             else if (hit.collider.tag == "door")
             {
@@ -352,174 +301,6 @@ public class RaycastPointer : MonoBehaviour
                 {
                     tapTrigger.onHover();
                 }
-            }
-            else if (hit.collider.tag == "levelSelectCube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                LevelSelectCubeButton oss = menuItem.GetComponent<LevelSelectCubeButton>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
-            }
-            else if (hit.collider.tag == "Level1Cube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                Level1Button oss = menuItem.GetComponent<Level1Button>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
-            }
-            else if (hit.collider.tag == "Level2Cube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                Level2Button oss = menuItem.GetComponent<Level2Button>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
-            }
-            else if (hit.collider.tag == "Level3Cube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                Level3Button oss = menuItem.GetComponent<Level3Button>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
-            }
-            else if (hit.collider.tag == "Level4Cube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                Level4Button oss = menuItem.GetComponent<Level4Button>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
-            }
-            else if (hit.collider.tag == "Level5Cube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                Level5Button oss = menuItem.GetComponent<Level5Button>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
-            }
-            else if (hit.collider.tag == "BackToMainManuCube")
-            {
-                lineRenderer.material.color = Color.green;
-
-                // if we were holding down the trigger before hovering over quit button,
-                // then we need to release the trigger before being able to click it
-                if (!onPickupableObject)
-                    canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
-                else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
-                    canPickupObject = true;
-
-                // indicate that we are hovering over item
-                onPickupableObject = true;
-
-                GameObject menuItem = hit.collider.gameObject;
-                BackToMainMenu oss = menuItem.GetComponent<BackToMainMenu>();
-
-                // if we can click this button and the trigger is down, click it
-                // otherwise, call onHover()
-                if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
-                    oss.onClick();
-                else
-                    oss.onHover();
             }
             // otherwise, reset pointer color and indicate that we can't 
             // currently pick up an object
