@@ -140,32 +140,33 @@ public class SeatManager : MonoBehaviour
 
             customer.transform.GetChild(1).GetComponent<TextMesh>().text = "+ " + score;
             DataManager.addToScore(score);
-        }
 
-        served = true;
+            served = true;
 
-        // wait before destroying anything
-        yield return new WaitForSeconds(waitTimeUntilDestroy);
+            // wait before destroying anything
+            yield return new WaitForSeconds(waitTimeUntilDestroy);
 
-        // get rid of customer object if there is one
-        if (customer != null)
-        {
+            // get rid of customer
             onCustomerLeave();
+
+            // destroy cup
+            Destroy(cup);
+
+            yield break;
         }
 
-        // destroy cup
+        // if customer is not here, just destroy cup
+        yield return new WaitForSeconds(waitTimeUntilDestroy);
         Destroy(cup);
     }
 
     // pauses the timer for the current current (if there is one currently)
     public void pauseTimer()
     {
-        if (customer == null)
-            return;
-
         // set the pause flag to true to indicate that the customer is in
         // the process of being served (the cup is being lowered to the bar mat)
-        pause = true;
+        if (customer != null && arrived)
+            pause = true;
     }
 
     private void Update()
