@@ -28,6 +28,9 @@ public class RaycastPointer : MonoBehaviour
     private TapTrigger tapTrigger = null;
     private bool isBeerBottle;
     Queue<Vector3> recentPositions = new Queue<Vector3>();
+    private float currTouch, prevTouch;
+    private bool onTouchpad;
+    private float depthMultiplier = 1f;
 
     private void Start()
     {
@@ -126,6 +129,23 @@ public class RaycastPointer : MonoBehaviour
             // keep track of position for only last 10 frames
             if (recentPositions.Count >= 10)
                 recentPositions.Dequeue();
+
+            // if player's finger is on touchpad, adjust object depth accordingly
+            if (OVRInput.Get(OVRInput.Touch.One))
+            {
+                // get current y position of finger on touchpad
+                currTouch = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad).y;
+                // if player's finger was already on touchpad, adjust object depth
+                // based on the difference in y position of touch
+                if (onTouchpad)
+                    objDistance += (currTouch - prevTouch) * depthMultiplier;
+                prevTouch = currTouch;
+                onTouchpad = true;
+            }
+            else
+            {
+                onTouchpad = false;
+            }
 
             rb.MovePosition(laserPointer.origin + laserPointer.direction * objDistance);
 
@@ -385,5 +405,6 @@ public class RaycastPointer : MonoBehaviour
         }
         pickedUpObject = null;
         objDistance = startDistance;
+        onTouchpad = false;
     }
 }
