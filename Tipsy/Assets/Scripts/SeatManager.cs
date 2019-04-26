@@ -17,7 +17,7 @@ public class SeatManager : MonoBehaviour
     public int baseScore = 10;
 
     // adds customer to this seat
-    public void addCustomer(GameObject newCustomer, DrinkOrder order)
+    public void addCustomer(GameObject newCustomer, DrinkOrder order, Transform location)
     {
         // make sure we don't already have a customer
         if (customer != null)
@@ -28,7 +28,7 @@ public class SeatManager : MonoBehaviour
 
         // get location of customer for this seat
         Transform customerPlacement = this.gameObject.transform.GetChild(1).transform;
-        customer = (GameObject)Instantiate(newCustomer);
+        customer = (GameObject)Instantiate(newCustomer, location.position, Quaternion.identity);
         customer.transform.position += new Vector3(3f, 3f, 3f);
 
         // disable billboard while customer is walking

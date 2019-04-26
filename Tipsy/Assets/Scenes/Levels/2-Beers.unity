@@ -659,6 +659,8 @@ Transform:
   - {fileID: 2015296014}
   - {fileID: 925040308}
   - {fileID: 1631310841}
+  - {fileID: 1044540093}
+  - {fileID: 209781993}
   - {fileID: 72662563}
   - {fileID: 1094661330}
   - {fileID: 1044265404}
@@ -668,12 +670,10 @@ Transform:
   - {fileID: 555984099}
   - {fileID: 255238295}
   - {fileID: 376341475}
-  - {fileID: 1044540093}
   - {fileID: 463132994}
   - {fileID: 2018172461}
   - {fileID: 604481754}
   - {fileID: 2097033441}
-  - {fileID: 209781993}
   - {fileID: 221107152}
   - {fileID: 906843031}
   - {fileID: 1964357265}
@@ -1752,7 +1752,7 @@ Transform:
   - {fileID: 1189804937}
   - {fileID: 1270391496}
   m_Father: {fileID: 86103920}
-  m_RootOrder: 26
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &221107151
 Prefab:
@@ -1959,6 +1959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e650a6a787084944954154fee321124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnLocation: {fileID: 799310682}
   male: {fileID: 1284403431854514, guid: ca9858f7ae7494e5ea9b8cf86c6cf73e, type: 2}
   female: {fileID: 1213949365797290, guid: f1c575063455c4463b5d2c9115b9d1c1, type: 2}
   waitBeforeEnding: 3
@@ -10813,6 +10814,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 778354696}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &799310681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799310682}
+  m_Layer: 0
+  m_Name: SpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &799310682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 799310681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.69, y: 0, z: 14.52}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820041559
 GameObject:
   m_ObjectHideFlags: 0
@@ -16564,7 +16593,7 @@ Transform:
   - {fileID: 103250824}
   - {fileID: 143089355}
   m_Father: {fileID: 86103920}
-  m_RootOrder: 21
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &1062639788
 Prefab:

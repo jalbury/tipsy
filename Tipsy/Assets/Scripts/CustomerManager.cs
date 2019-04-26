@@ -31,6 +31,7 @@ public struct DrinkOrder
 
 public class CustomerManager : MonoBehaviour
 {
+    public Transform spawnLocation;
     private int numberOfCustomers = 6;
     private int minSpawnTime;
     private int maxSpawnTime;
@@ -117,7 +118,7 @@ public class CustomerManager : MonoBehaviour
             // if seat doesn't already have a customer, add customer there
             if (!seats[seatNum].GetComponent<SeatManager>().hasCustomer())
             {
-                seats[seatNum].GetComponent<SeatManager>().addCustomer(coinToss == 0 ? male : female, order);
+                seats[seatNum].GetComponent<SeatManager>().addCustomer(coinToss == 0 ? male : female, order, spawnLocation);
                 customersSpawned++;
                 break;
             }
