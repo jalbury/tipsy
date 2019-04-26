@@ -10,10 +10,13 @@ public class BottleManager : MonoBehaviour
     bool emissionState;
     double pourThreshold;
     public ParticleSystem liquidFlow;
+    private bool deactivated = false;
 
 
     public void release()
     {
+        // deactivate and destroy this bottle
+        deactivated = true;
         Destroy(gameObject, waitTimeUntilDestroy);
     }
 
@@ -25,6 +28,17 @@ public class BottleManager : MonoBehaviour
     }
     private void Update()
     {
+        // if bottle is deactivated, turn off particle system flow
+        if (deactivated)
+        {
+            if (emissionState)
+            {
+                emissionState = false;
+                liquidFlow.Stop();
+            }
+            return;
+        }
+
         bool tipped = isTipped();
         if (tipped)
         {
