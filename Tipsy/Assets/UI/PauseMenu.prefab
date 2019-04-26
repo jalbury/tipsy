@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33969004553627316}
   - component: {fileID: 23154730686571306}
   - component: {fileID: 65627760184004684}
-  - component: {fileID: 114072046079822706}
+  - component: {fileID: 114678905616510022}
   m_Layer: 0
   m_Name: Resume
   m_TagString: ResumeCube
@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1573068929776244
 GameObject:
   m_ObjectHideFlags: 1
@@ -111,9 +111,10 @@ GameObject:
   - component: {fileID: 23139892325185362}
   - component: {fileID: 65616701346724952}
   - component: {fileID: 114809263904439818}
+  - component: {fileID: 114700409756593144}
   m_Layer: 0
   m_Name: MainMenu
-  m_TagString: BackToMainManuCube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +150,7 @@ GameObject:
   - component: {fileID: 114153261149802480}
   m_Layer: 0
   m_Name: Quit
-  m_TagString: quitCube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,7 +162,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1451365203862218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.28, y: 2.97, z: -3.29}
+  m_LocalPosition: {x: 19.69, y: 4.12, z: -3.29}
   m_LocalScale: {x: 0.01, y: 4, z: 6}
   m_Children:
   - {fileID: 224175180361209044}
@@ -576,7 +577,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971397418138142}
-  m_Text: Pause Menu
+  m_Text: Game Paused
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -655,20 +656,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114072046079822706
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1085030581798538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3648ed286aaab3440ab3874b2b284396, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultMat: {fileID: 2100000, guid: 7e1b10fc9de0d2842a1bdf0992ac3131, type: 2}
-  hoverMat: {fileID: 2100000, guid: acf93e8ee5e7719448898aab612d9672, type: 2}
-  clickMat: {fileID: 2100000, guid: 0ad3c3107d8d7d54780cb6dee7afc0ba, type: 2}
 --- !u!114 &114153261149802480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -683,6 +670,34 @@ MonoBehaviour:
   defaultMat: {fileID: 2100000, guid: 7e1b10fc9de0d2842a1bdf0992ac3131, type: 2}
   hoverMat: {fileID: 2100000, guid: acf93e8ee5e7719448898aab612d9672, type: 2}
   clickMat: {fileID: 2100000, guid: 0ad3c3107d8d7d54780cb6dee7afc0ba, type: 2}
+--- !u!114 &114678905616510022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1085030581798538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa8c271c96d64ed3b674b72adaba9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMat: {fileID: 2100000, guid: 7e1b10fc9de0d2842a1bdf0992ac3131, type: 2}
+  hoverMat: {fileID: 2100000, guid: acf93e8ee5e7719448898aab612d9672, type: 2}
+  clickMat: {fileID: 2100000, guid: 0ad3c3107d8d7d54780cb6dee7afc0ba, type: 2}
+--- !u!114 &114700409756593144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1824804361814028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb34925da7c634995b0da19fdfa94cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMat: {fileID: 0}
+  hoverMat: {fileID: 0}
+  clickMat: {fileID: 0}
 --- !u!114 &114809263904439818
 MonoBehaviour:
   m_ObjectHideFlags: 1

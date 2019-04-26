@@ -148,4 +148,12 @@ public class CustomerManager : MonoBehaviour
         yield return new WaitForSeconds(waitBeforeEnding);
         SceneManager.LoadScene("ScoreScene");
     }
+
+    // if "show" is true, shows all customer order text; otherwise, hides all customer
+    // order text
+    public void showOrders(bool show)
+    {
+        for (int i = 0; i < seats.Length; i++)
+            seats[i].GetComponent<SeatManager>().showBillboardText(show);
+    }
 }

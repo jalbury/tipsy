@@ -192,4 +192,11 @@ public class SeatManager : MonoBehaviour
         orderStr += "\nContainer: " + customerOrder.container + "\nTimer: " + Math.Round(timeLeft, 2);
         customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = orderStr;
     }
+
+    // if customer is seated, show text if "show" is true and hide text if "show" is false
+    public void showBillboardText(bool show)
+    {
+        if (customer != null && arrived)
+            customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().GetComponent<Renderer>().enabled = show;
+    }
 }

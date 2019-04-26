@@ -8,6 +8,7 @@ public class BackToMainMenu : PhysicalButton
     public override void onClick()
     {
         base.onClick();
+        Time.timeScale = 1f;
         SceneManager.LoadScene("StartMenu");	
 	}
 }

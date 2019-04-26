@@ -9,6 +9,7 @@ public class RaycastPointer : MonoBehaviour
     public Transform leftHandAnchor = null;
     public Transform rightHandAnchor = null;
     public LineRenderer lineRenderer = null;
+    public bool isLevel;
     public float maxRayDistance = 500.0f;
     public LayerMask excludeLayers;
     public float speedMultiplier = 5.0f;
@@ -31,6 +32,9 @@ public class RaycastPointer : MonoBehaviour
     private float currTouch, prevTouch;
     private bool onTouchpad;
     private float depthMultiplier = 1f;
+    private bool isPaused, onPauseButton;
+    public GameObject customerManager;
+    public GameObject pauseMenu;
 
     private void Start()
     {
@@ -91,6 +95,30 @@ public class RaycastPointer : MonoBehaviour
 
     void Update()
     {
+        if (isLevel)
+        {
+            // check whether player is currently pressing pause button
+            if (OVRInput.Get(OVRInput.Button.Back))
+            {
+                // check to make sure pause button wasn't already being pressed (debouncing)
+                if (!onPauseButton)
+                {
+                    // if game is already paused, resume game
+                    if (isPaused)
+                        resume();
+                    // otherwise, pause game
+                    else
+                        pause();
+
+                    onPauseButton = true;
+                }
+            }
+            else
+            {
+                onPauseButton = false;
+            }
+        }
+
         if (tapDispensing)
         {
             // if tap is dispensing and player takes finger off trigger, stop dispensing
@@ -180,7 +208,7 @@ public class RaycastPointer : MonoBehaviour
             }
 
             // check if we hit a cup that we are able to pick up
-            if (hit.collider.tag == "isCupThreshold" && hit.collider.gameObject.GetComponent<CupManager>().canPickup())
+            if (hit.collider.tag == "isCupThreshold" && !isPaused && hit.collider.gameObject.GetComponent<CupManager>().canPickup())
             {
                 lineRenderer.material.color = Color.blue;
 
@@ -202,7 +230,7 @@ public class RaycastPointer : MonoBehaviour
                 }
             }
             // check if we hit a menu item that dispenses objects
-            else if (hit.collider.tag == "objectDispenser")
+            else if (hit.collider.tag == "objectDispenser" && !isPaused)
             {
                 lineRenderer.material.color = Color.green;
                 isHovering = true;
@@ -229,7 +257,7 @@ public class RaycastPointer : MonoBehaviour
                 }
             }
             // check if we hit one of the drop-down menu items
-            else if (hit.collider.tag == "hoverable")
+            else if (hit.collider.tag == "hoverable" && !isPaused)
             {
                 // tell menu item to perform drop-down
                 isHovering = true;
@@ -238,7 +266,7 @@ public class RaycastPointer : MonoBehaviour
                 ohs.OnHover();
             }
             // check if we hit a button
-            else if (hit.collider.tag == "physicalButton")
+            else if (hit.collider.tag == "physicalButton" || hit.collider.tag == "ResumeCube")
             {
                 lineRenderer.material.color = Color.green;
 
@@ -257,11 +285,19 @@ public class RaycastPointer : MonoBehaviour
                 // if we can click this button and the trigger is down, click it
                 // otherwise, call onHover()
                 if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                {
                     btn.onClick();
+
+                    // special case: button is resume button; we should also call resume() after clicking
+                    if (hit.collider.tag == "ResumeCube" && isPaused)
+                        resume();
+                }
                 else
+                {
                     btn.onHover();
+                }
             }
-            else if (hit.collider.tag == "door")
+            else if (hit.collider.tag == "door" && !isPaused)
             {
                 lineRenderer.material.color = Color.green;
 
@@ -293,7 +329,7 @@ public class RaycastPointer : MonoBehaviour
                     m.onHover();
                 }
             }
-            else if (hit.collider.tag == "tap")
+            else if (hit.collider.tag == "tap" && !isPaused)
             {
                 lineRenderer.material.color = Color.green;
 
@@ -406,5 +442,27 @@ public class RaycastPointer : MonoBehaviour
         pickedUpObject = null;
         objDistance = startDistance;
         onTouchpad = false;
+    }
+
+    private void pause()
+    {
+        isPaused = true;
+        // hide all customer orders to avoid cheating
+        customerManager.GetComponent<CustomerManager>().showOrders(false);
+        // show pause menu
+        pauseMenu.SetActive(true);
+        // pause game
+        Time.timeScale = 0f;
+    }
+
+    private void resume()
+    {
+        isPaused = false;
+        // show all customer orders
+        customerManager.GetComponent<CustomerManager>().showOrders(true);
+        // hide pause menu
+        pauseMenu.SetActive(false);
+        // resume game
+        Time.timeScale = 1f;
     }
 }

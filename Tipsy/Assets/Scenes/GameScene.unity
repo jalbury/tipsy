@@ -3562,6 +3562,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4428573634366526, guid: abdfdb51929654843bef31098a507ced,
     type: 2}
   m_PrefabInternal: {fileID: 904533228}
+--- !u!1001 &904825946
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 19.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183992521297164, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+      propertyPath: m_RootOrder
+      value: 44
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f62469cc0511aa34987df804de94dbff, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1 &904825947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1451365203862218, guid: f62469cc0511aa34987df804de94dbff,
+    type: 2}
+  m_PrefabInternal: {fileID: 904825946}
 --- !u!1001 &911114178
 Prefab:
   m_ObjectHideFlags: 0
@@ -3898,6 +3945,7 @@ MonoBehaviour:
   leftHandAnchor: {fileID: 874580642}
   rightHandAnchor: {fileID: 827487353}
   lineRenderer: {fileID: 0}
+  isLevel: 1
   maxRayDistance: 500
   excludeLayers:
     serializedVersion: 2
@@ -3905,6 +3953,8 @@ MonoBehaviour:
   speedMultiplier: 2.5
   pickedUpObject: {fileID: 0}
   objDistance: 2.55
+  customerManager: {fileID: 1854981558}
+  pauseMenu: {fileID: 904825947}
 --- !u!223 &1011910138
 Canvas:
   m_ObjectHideFlags: 0
