@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4881719033943618}
   - component: {fileID: 54578800339356454}
-  - component: {fileID: 64900878704186936}
   - component: {fileID: 114108185531548496}
+  - component: {fileID: 65034137673458408}
   m_Layer: 0
   m_Name: Ale
   m_TagString: Ale
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1211910363938606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.93, y: 1.72726, z: -3.6938937}
+  m_LocalPosition: {x: 0, y: 0.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4523731870253930}
@@ -219,8 +219,8 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 75671cea3f54ecb4fb272256cb9f0ec9, type: 3}
---- !u!64 &64900878704186936
-MeshCollider:
+--- !u!65 &65034137673458408
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -228,11 +228,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.1570611, y: 0.40878266, z: 0.15854976}
+  m_Center: {x: 0.0018233359, y: 0.08521494, z: -0.0015996248}
 --- !u!114 &114108185531548496
 MonoBehaviour:
   m_ObjectHideFlags: 1

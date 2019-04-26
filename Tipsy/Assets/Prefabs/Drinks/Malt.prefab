@@ -38,8 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4385990133284628}
   - component: {fileID: 54379681515288732}
-  - component: {fileID: 64058003884914452}
   - component: {fileID: 114958036541533806}
+  - component: {fileID: 65418109464228360}
   m_Layer: 0
   m_Name: Malt
   m_TagString: Malt
@@ -205,20 +205,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &64058003884914452
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1457541677178530}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
 --- !u!64 &64986552859839550
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -233,6 +219,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 75671cea3f54ecb4fb272256cb9f0ec9, type: 3}
+--- !u!65 &65418109464228360
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457541677178530}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1570611, y: 0.40878266, z: 0.15854976}
+  m_Center: {x: 0.0018233359, y: 0.08521494, z: -0.0015996248}
 --- !u!114 &114958036541533806
 MonoBehaviour:
   m_ObjectHideFlags: 1
