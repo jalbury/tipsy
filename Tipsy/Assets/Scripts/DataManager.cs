@@ -55,10 +55,6 @@ public static class DataManager
         return amountHeightPerOz;
     }
 
-    public static void ozPerParticle(float x)
-    {
-        volumePerParticle = x;
-    }
 
     public static float ozPerParticle()
     {
