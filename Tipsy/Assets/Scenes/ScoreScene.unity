@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 293815175}
   m_Layer: 0
   m_Name: ToStartMenu
-  m_TagString: mainMenuCube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3249,7 +3249,7 @@ GameObject:
   - component: {fileID: 983286738}
   m_Layer: 0
   m_Name: Quit
-  m_TagString: quitCube
+  m_TagString: physicalButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3433,6 +3433,7 @@ MonoBehaviour:
   leftHandAnchor: {fileID: 874580642}
   rightHandAnchor: {fileID: 827487353}
   lineRenderer: {fileID: 0}
+  isLevel: 0
   maxRayDistance: 500
   excludeLayers:
     serializedVersion: 2
@@ -3440,6 +3441,8 @@ MonoBehaviour:
   speedMultiplier: 2.5
   pickedUpObject: {fileID: 0}
   objDistance: 3
+  customerManager: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!223 &1011910138
 Canvas:
   m_ObjectHideFlags: 0
@@ -5199,6 +5202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e650a6a787084944954154fee321124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnLocation: {fileID: 0}
   male: {fileID: 0}
   female: {fileID: 0}
   waitBeforeEnding: 3

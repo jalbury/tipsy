@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class SeatManager : MonoBehaviour 
 {
@@ -34,8 +35,7 @@ public class SeatManager : MonoBehaviour
         customer.transform.position += new Vector3(3f, 3f, 3f);
 
         // disable billboard while customer is walking
-        customer.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
-        customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = "";
+        customer.transform.Find("NewCustomerOrderUI").gameObject.SetActive(false);
 
         // hide text that shows added score
         customer.transform.GetChild(1).GetComponent<TextMesh>().text = "";
@@ -50,7 +50,7 @@ public class SeatManager : MonoBehaviour
             return;
 
         // enable billboard now that customer has arrived
-        customer.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+        customer.transform.Find("NewCustomerOrderUI").gameObject.SetActive(true);
         arrived = true;
         // set timer
         timeLeft = (float)customerOrder.timeLimit;
@@ -58,15 +58,19 @@ public class SeatManager : MonoBehaviour
         // calculate time at which beImpatient should be activated
         beImpatientThreshold = timer * (1 - beImpatientMultiplier);
 
+        string orderName = customerOrder.drinkName;
+        customer.transform.Find("NewCustomerOrderUI").Find("Drink Name Text").GetComponent<Text>().text = orderName;
+        string timerStr = "" + Math.Round(timeLeft, 1) + " seconds";
+        customer.transform.Find("NewCustomerOrderUI").Find("Drink Timer").GetComponent<Text>().text = timerStr;
+        float progressBar = timeLeft / timer;
+        customer.transform.Find("NewCustomerOrderUI").Find("CustomerTimerBar").GetComponent<Slider>().value = progressBar;
+        string orderStr = customerOrder.container;
 
-        // set text for customer order billboard
-        string orderStr = "Order: " + customerOrder.drinkName + "\nContents: ";
         foreach (KeyValuePair<string, float> c in customerOrder.contents)
         {
-            orderStr += c.Value + " oz. " + c.Key;
+            orderStr += "\n" + c.Value + " oz. " + c.Key;
         }
-        orderStr += "\nContainer: " + customerOrder.container + "\nTimer: " + Math.Round(timeLeft, 2);
-        customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = orderStr;
+        customer.transform.Find("NewCustomerOrderUI").Find("Contents").GetComponent<Text>().text = orderStr;
 
         // hide text that shows added score
         customer.transform.GetChild(1).GetComponent<TextMesh>().text = "";
@@ -75,8 +79,7 @@ public class SeatManager : MonoBehaviour
     private void onCustomerLeave()
     {
         // disable billboard while customer is walking
-        customer.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = false;
-        customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = "";
+        customer.transform.Find("NewCustomerOrderUI").gameObject.SetActive(false);
 
         // hide text that shows added score
         customer.transform.GetChild(1).GetComponent<TextMesh>().text = "";
@@ -199,19 +202,16 @@ public class SeatManager : MonoBehaviour
             beImpatient = true;
         }
 
-        string orderStr = "Order: " + customerOrder.drinkName + "\nContents: ";
-        foreach(KeyValuePair<string, float> c in customerOrder.contents)
-        {
-            orderStr += c.Value + " oz. " + c.Key;
-        }
-        orderStr += "\nContainer: " + customerOrder.container + "\nTimer: " + Math.Round(timeLeft, 2);
-        customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().text = orderStr;
+        string timerStr = "" + Math.Round(timeLeft, 0) + " seconds";
+        customer.transform.Find("NewCustomerOrderUI").Find("Drink Timer").GetComponent<Text>().text = timerStr;
+        float progressBar = timeLeft / timer;
+        customer.transform.Find("NewCustomerOrderUI").Find("CustomerTimerBar").GetComponent<Slider>().value = progressBar;
     }
 
     // if customer is seated, show text if "show" is true and hide text if "show" is false
     public void showBillboardText(bool show)
     {
         if (customer != null && arrived)
-            customer.transform.GetChild(0).GetChild(0).GetComponent<TextMesh>().GetComponent<Renderer>().enabled = show;
+            customer.transform.Find("NewCustomerOrderUI").gameObject.SetActive(show);
     }
 }
