@@ -21,13 +21,11 @@ public class TapTrigger : MonoBehaviour {
 
     public void onClick()
     {
-        DataManager.ozPerParticle(2f * DataManager.ozPerParticle());
         liquidFlow.Play();
     }
 
     public void onUnclick()
     {
-        DataManager.ozPerParticle(DataManager.ozPerParticle() / 2f);
         liquidFlow.Stop();
     }
 }
