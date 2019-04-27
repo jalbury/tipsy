@@ -15,6 +15,8 @@ public class SeatManager : MonoBehaviour
     private bool pause = false;
     private bool arrived = false;
     public int baseScore = 10;
+    private float beImpatientMultiplier = 0.75f, beImpatientThreshold;
+    private bool beImpatient;
 
     // adds customer to this seat
     public void addCustomer(GameObject newCustomer, DrinkOrder order, Transform location)
@@ -53,6 +55,9 @@ public class SeatManager : MonoBehaviour
         // set timer
         timeLeft = (float)customerOrder.timeLimit;
         timer = timeLeft;
+        // calculate time at which beImpatient should be activated
+        beImpatientThreshold = timer * (1 - beImpatientMultiplier);
+
 
         // set text for customer order billboard
         string orderStr = "Order: " + customerOrder.drinkName + "\nContents: ";
@@ -79,6 +84,7 @@ public class SeatManager : MonoBehaviour
         served = false;
         pause = false;
         arrived = false;
+        beImpatient = false;
 
         StartCoroutine(FinishCustomerLeaveSequence());
     }
@@ -183,6 +189,14 @@ public class SeatManager : MonoBehaviour
         {
             onCustomerLeave();
             return;
+        }
+
+        // if customer has waited past the beImpatient threshold, activate
+        // the beImpatient animation
+        if (timeLeft < beImpatientThreshold && !beImpatient)
+        {
+            customer.GetComponent<Animator>().SetBool("beImpatient", true);
+            beImpatient = true;
         }
 
         string orderStr = "Order: " + customerOrder.drinkName + "\nContents: ";
