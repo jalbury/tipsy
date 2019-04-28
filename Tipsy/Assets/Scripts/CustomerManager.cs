@@ -99,10 +99,6 @@ public class CustomerManager : MonoBehaviour
         if (customersSpawned >= numberOfCustomers)
             yield break;
 
-        // generate a wait time between minSpawnTime and maxSpawnTime (inclusive)
-        int wait_time = minSpawnTime + Random.Range(0, maxSpawnTime - minSpawnTime + 1);
-        yield return new WaitForSeconds(wait_time);
-
         // get difficulty level for the current customer
         int difficulty = difficultyLevels[customersSpawned];
         // randomly choose drink with the given difficulty level
@@ -123,6 +119,10 @@ public class CustomerManager : MonoBehaviour
                 break;
             }
         }
+
+        // generate a wait time between minSpawnTime and maxSpawnTime (inclusive)
+        int wait_time = minSpawnTime + Random.Range(0, maxSpawnTime - minSpawnTime + 1);
+        yield return new WaitForSeconds(wait_time);
 
         // call Spawner() again to spawn more customers
         StartCoroutine(Spawner());
