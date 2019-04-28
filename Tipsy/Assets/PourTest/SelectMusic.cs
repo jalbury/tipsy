@@ -19,4 +19,10 @@ public class SelectMusic : JukeboxButton {
         curSong = (curSong + 1) % songs.Length;
         return songs[curSong];
     }
+
+    public AudioClip randomSong()
+    {
+        curSong = Random.Range(0, songs.Length);
+        return songs[curSong];
+    }
 }

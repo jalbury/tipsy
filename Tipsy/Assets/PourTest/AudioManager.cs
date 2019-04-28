@@ -42,7 +42,7 @@ public class AudioManager : MonoBehaviour {
     public void setCurrent(GameObject selectedList)
     {
         curPlaylist = selectedList;
-        _audioSource.clip = curPlaylist.GetComponent<SelectMusic>().nextSong();
+        _audioSource.clip = curPlaylist.GetComponent<SelectMusic>().randomSong();
     }
 
     public void toggleMute()
