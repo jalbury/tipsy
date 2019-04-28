@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeVolume : MonoBehaviour {
+public class ChangeVolume : JukeboxButton {
 
     public GameObject audioManager;
 
     [Range(-1.0f,1.0f)]
     public float volumeChange;
 
-    public void OnMouseUpAsButton()
+    public override void clickAction()
     {
         audioManager.GetComponent<AudioManager>().changeVolume(volumeChange);
     }

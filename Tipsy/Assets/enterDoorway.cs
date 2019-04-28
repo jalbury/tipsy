@@ -15,8 +15,6 @@ public class enterDoorway : MonoBehaviour {
         GetComponent<AudioSource>().Play();
 
         StartCoroutine("openDoor");
-        
-
     }
 
    

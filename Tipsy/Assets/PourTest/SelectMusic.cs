@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectMusic : MonoBehaviour {
+public class SelectMusic : JukeboxButton {
 
     public AudioClip[] songs;
     public int curSong;
 
     public GameObject audioManager;
 
-    public void OnMouseUpAsButton()
+    public override void clickAction()
     {
         audioManager.GetComponent<AudioManager>().setCurrent(this.gameObject);
     }

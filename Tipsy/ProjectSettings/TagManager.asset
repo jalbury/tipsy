@@ -30,6 +30,11 @@ TagManager:
   - Stout
   - ResumeCube
   - physicalButton
+  - Music
+  - playCube
+  - quitCube
+  - jukebox
+  - jukeboxButton
   layers:
   - Default
   - TransparentFX

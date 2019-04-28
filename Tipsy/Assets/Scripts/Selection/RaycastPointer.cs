@@ -35,6 +35,7 @@ public class RaycastPointer : MonoBehaviour
     private bool isPaused, onPauseButton;
     public GameObject customerManager;
     public GameObject pauseMenu;
+    private GameObject jukebox = null;
 
     private void Start()
     {
@@ -295,6 +296,45 @@ public class RaycastPointer : MonoBehaviour
                 else
                 {
                     btn.onHover();
+                }
+            }
+            else if (hit.collider.tag == "jukeboxButton" || hit.collider.tag == "jukebox")
+            {
+                lineRenderer.material.color = Color.green;
+
+                if (hit.collider.tag == "jukebox" && jukebox == null)
+                    jukebox = hit.collider.gameObject;
+
+                jukebox.GetComponent<ToggleUi>().onHover();
+
+                if (hit.collider.tag == "jukeboxButton")
+                {
+                    // if we were holding down the trigger before hovering over button,
+                    // then we need to release the trigger before being able to click it
+                    if (!onPickupableObject)
+                        canPickupObject = !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger));
+                    else if (!canPickupObject && !(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger)))
+                        canPickupObject = true;
+
+                    // indicate that we are hovering over button
+                    onPickupableObject = true;
+
+                    JukeboxButton btn = hit.collider.gameObject.GetComponent<JukeboxButton>();
+
+                    // if we can click this button and the trigger is down, click it
+                    // otherwise, call onHover()
+                    if (canPickupObject && OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+                    {
+                        btn.onClick();
+
+                        // special case: button is resume button; we should also call resume() after clicking
+                        if (hit.collider.tag == "ResumeCube" && isPaused)
+                            resume();
+                    }
+                    else
+                    {
+                        btn.onHover();
+                    }
                 }
             }
             else if (hit.collider.tag == "door" && !isPaused)

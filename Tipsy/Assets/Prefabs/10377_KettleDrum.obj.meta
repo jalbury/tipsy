@@ -47,6 +47,24 @@ ModelImporter:
     2100006: _10377_KettleDrumbrassSG
     2100008: _10377_KettleDrumdrumstickSG
     2100010: _10377_KettleDrumtransparentSG
+    2100012: BassDrum_polySurface14Mat
+    2100014: BassDrum_polySurface15Mat
+    2100016: CrashMat
+    2100018: CymbalsMat
+    2100020: DrumstickMat
+    2100022: FloorTom_polySurface11Mat
+    2100024: FloorTom_polySurface12Mat
+    2100026: polySurface10_FloorTomMat
+    2100028: polySurface13_BassDrumMat
+    2100030: polySurface1_UpperTom2Mat
+    2100032: polySurface4_UpperTom1Mat
+    2100034: polySurface7_SnareMat
+    2100036: Snare_polySurface8Mat
+    2100038: Snare_polySurface9Mat
+    2100040: UpperTom1_polySurface5Mat
+    2100042: UpperTom1_polySurface6Mat
+    2100044: UpperTom2_polySurface2Mat
+    2100046: UpperTom2_polySurface3Mat
     2300000: BassDrum_polySurface14
     2300002: BassDrum_polySurface15
     2300004: Crash
