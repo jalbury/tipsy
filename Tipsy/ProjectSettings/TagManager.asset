@@ -35,6 +35,11 @@ TagManager:
   - quitCube
   - jukebox
   - jukeboxButton
+  - Vodka
+  - Gin
+  - Coke
+  - Tonic
+  - Sprite
   layers:
   - Default
   - TransparentFX

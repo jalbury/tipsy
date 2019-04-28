@@ -16,7 +16,7 @@ public class SeatManager : MonoBehaviour
     private bool pause = false;
     private bool arrived = false;
     public int baseScore = 10;
-    private float beImpatientMultiplier = 0.75f, beImpatientThreshold;
+    private float beImpatientMultiplier = 0.5f, beImpatientThreshold;
     private bool beImpatient;
 
     // adds customer to this seat
@@ -33,6 +33,7 @@ public class SeatManager : MonoBehaviour
         Transform customerPlacement = this.gameObject.transform.GetChild(1).transform;
         customer = (GameObject)Instantiate(newCustomer, location.position, Quaternion.identity);
         customer.transform.position += new Vector3(3f, 3f, 3f);
+        customer.GetComponent<MoveAgent>().spawnLocation = location;
 
         // disable billboard while customer is walking
         customer.transform.Find("NewCustomerOrderUI").gameObject.SetActive(false);
@@ -127,18 +128,21 @@ public class SeatManager : MonoBehaviour
             {
                 Dictionary<string, int> liquids = cup.GetComponent<SpawnLiquid>().getLiquids();
 
-                foreach (KeyValuePair<string, int> entry in liquids)
+                if (liquids.Count == customerOrder.contents.Count)
                 {
-                    if (!customerOrder.contents.ContainsKey(entry.Key))
+                    foreach (KeyValuePair<string, int> entry in liquids)
                     {
-                        score = 0;
-                        break;
+                        if (!customerOrder.contents.ContainsKey(entry.Key))
+                        {
+                            score = 0;
+                            break;
+                        }
+                        float correctAmt = customerOrder.contents[entry.Key];
+                        float actualAmt = entry.Value * DataManager.ozPerParticle();
+                        float accuracyMultiplier = 1 - (Mathf.Abs(correctAmt - actualAmt) / correctAmt);
+                        float timeMultiplier = 1 + (timeLeft / timer);
+                        score += (int)(baseScore * timeMultiplier * accuracyMultiplier);
                     }
-                    float correctAmt = customerOrder.contents[entry.Key];
-                    float actualAmt = entry.Value * DataManager.ozPerParticle();
-                    float accuracyMultiplier = 1 - (Mathf.Abs(correctAmt - actualAmt) / correctAmt);
-                    float timeMultiplier = 1 + (timeLeft / timer);
-                    score += (int)(baseScore * timeMultiplier * accuracyMultiplier);
                 }
             }
             else if (customerOrder.container == "Bottle" && customerOrder.contents.ContainsKey(cup.tag))
