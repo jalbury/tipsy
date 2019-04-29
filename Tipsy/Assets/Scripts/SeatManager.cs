@@ -140,6 +140,8 @@ public class SeatManager : MonoBehaviour
                         float correctAmt = customerOrder.contents[entry.Key];
                         float actualAmt = entry.Value * DataManager.ozPerParticle();
                         float accuracyMultiplier = 1 - (Mathf.Abs(correctAmt - actualAmt) / correctAmt);
+                        // make sure accuracy multiplier is not negative
+                        accuracyMultiplier = Math.Max(accuracyMultiplier, 0);
                         float timeMultiplier = 1 + (timeLeft / timer);
                         score += (int)(baseScore * timeMultiplier * accuracyMultiplier);
                     }
