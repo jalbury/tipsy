@@ -2004,20 +2004,6 @@ MonoBehaviour:
   - {fileID: 174448790}
   - {fileID: 1003281383}
   drinks:
-  - drinkName: Shot of Tequila
-    container: Rocks
-    contents:
-    - liquid: Tequila
-      amount: 2
-    timeLimit: 45
-    difficulty: 1
-  - drinkName: Shot of Rum
-    container: Rocks
-    contents:
-    - liquid: Rum
-      amount: 2
-    timeLimit: 45
-    difficulty: 1
   - drinkName: Ale (Bottled)
     container: Bottle
     contents:
