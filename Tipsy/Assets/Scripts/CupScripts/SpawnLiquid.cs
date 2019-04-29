@@ -45,7 +45,11 @@ public class SpawnLiquid : MonoBehaviour {
     { 
         numFramesSinceFilling++;
         if (numFramesSinceFilling >= 40)
+        {
             fillMeter.SetActive(false);
+            GetComponent<AudioSource>().Stop();
+
+        }
     }
 
     public void spawnObject(Rigidbody Prefab)
@@ -86,12 +90,14 @@ public class SpawnLiquid : MonoBehaviour {
 
     public void fillCylinder(Rigidbody Prefab, Color liquidColor)
     {
+        if(!GetComponent<AudioSource>().isPlaying)
+            GetComponent<AudioSource>().Play();
         fillMeter.SetActive(true);
         numFramesSinceFilling = 0;
 
         if (liquidAmount >= maxParticles)
         {
-            print("too much");
+            //print("too much");
             return;
         }
 

@@ -12,12 +12,10 @@ public class CollidesWithThreshold : MonoBehaviour {
     public void OnParticleCollision(GameObject other)
     {
         count++;
-        //print(count);
         SpawnLiquid theScript = other.GetComponent<SpawnLiquid>();
 
         if(other.CompareTag("isCupThreshold"))
         {
-            //print("Collided with threshold");
             if (theScript != null)
             {
                 if(useSphere)
