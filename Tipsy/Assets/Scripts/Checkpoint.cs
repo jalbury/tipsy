@@ -9,6 +9,8 @@ public class Checkpoint : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        if(GetComponent<AudioSource>()!=null)
+            GetComponent<AudioSource>().Play();
         animator = other.gameObject.GetComponent<Animator>();
         agent = other.gameObject.GetComponent<NavMeshAgent>();
         if (animator != null && agent != null)
