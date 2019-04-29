@@ -9,27 +9,40 @@ public class enterDoorway : MonoBehaviour {
     public float swingSpeed = 90f;
     public int swingAngle;
     float curAngle;
+    const int DONE = 0;
+    const int OPENING = -1;
+    const int CLOSING = 1;
+    const int DOOR_OPEN_TIME = 2;
 
     public void OnTriggerEnter(Collider other)
     {
-        GetComponent<AudioSource>().Play();
-
-        StartCoroutine("openDoor");
+        if(curAngle==0)
+            StartCoroutine("openDoor");
     }
 
    
     IEnumerator openDoor()
     {
-        int multiplier = -1;
+        GetComponent<AudioSource>().Play();
+        int multiplier = OPENING;
+        int valueBefore;// = multiplier;
         curAngle = 0;
         
-        while(multiplier!=0)
+        while(multiplier!=DONE)
         {
-            multiplier =  curAngle>swingAngle? 1: (multiplier==1 && curAngle<0 ? 0 : multiplier );
+            valueBefore = multiplier;
+            multiplier =  curAngle>swingAngle ? CLOSING: (multiplier==CLOSING && curAngle<0 ? DONE : multiplier );
+
+            if(valueBefore == OPENING && multiplier!=OPENING)
+            {
+                yield return new WaitForSeconds(DOOR_OPEN_TIME);
+            }
 
             curAngle += Time.deltaTime * swingSpeed* -1 * multiplier;
             itemToOpen.transform.RotateAround(pivotPoint.transform.position, new Vector3(0, 1, 0), multiplier * Time.deltaTime * swingSpeed);
             yield return null;
         }
+
+        curAngle = 0;
     }
 }
