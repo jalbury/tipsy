@@ -92,6 +92,7 @@ public class SpawnLiquid : MonoBehaviour {
     {
         if(!GetComponent<AudioSource>().isPlaying)
             GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().pitch = 1 + ((float)liquidAmount / (float)maxParticles);
         fillMeter.SetActive(true);
         numFramesSinceFilling = 0;
 
