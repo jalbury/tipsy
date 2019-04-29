@@ -126,11 +126,11 @@ public class SeatManager : MonoBehaviour
 
             if (cup.tag == "isCupThreshold")
             {
-                Dictionary<string, int> liquids = cup.GetComponent<SpawnLiquid>().getLiquids();
+                Dictionary<string, float> liquids = cup.GetComponent<SpawnLiquid>().getLiquids();
 
                 if (liquids.Count == customerOrder.contents.Count)
                 {
-                    foreach (KeyValuePair<string, int> entry in liquids)
+                    foreach (KeyValuePair<string, float> entry in liquids)
                     {
                         if (!customerOrder.contents.ContainsKey(entry.Key))
                         {

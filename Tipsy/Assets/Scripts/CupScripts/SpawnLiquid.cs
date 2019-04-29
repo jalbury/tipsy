@@ -13,23 +13,23 @@ public class SpawnLiquid : MonoBehaviour {
     public int spheresPerOz = 25;
     private float heightPerOz;
     private float heightPerParticle;
-    int liquidAmount;
+    float liquidAmount;
     int maxParticles;
     private int numFramesSinceFilling;
     public GameObject liquidThreshold;
     private GameObject fillMeter;
     private Text liquidText;
     private Slider slider;
-    private int beerMultiplier = 4;
+    private float beerMultiplier = 4f;
 
     //public Rigidbody Prefab;
     int count = 0;
-    private Dictionary<string, int> liquids;
+    private Dictionary<string, float> liquids;
 
 
     private void Start()
     {
-        liquids = new Dictionary<string, int>();
+        liquids = new Dictionary<string, float>();
         fillMeter = transform.Find("Drink Fill Meter UI").gameObject;
         slider = fillMeter.transform.Find("Slider").GetComponent<Slider>();
         liquidText = fillMeter.transform.Find("UI Name").GetComponent<Text>();
@@ -59,7 +59,7 @@ public class SpawnLiquid : MonoBehaviour {
             return;
 
         count++;
-        int sphereCount;
+        float sphereCount;
         if (liquids.ContainsKey(Prefab.tag))
         {
             sphereCount = liquids[Prefab.tag] + 1;
@@ -110,7 +110,7 @@ public class SpawnLiquid : MonoBehaviour {
 
         liquidText.text = Prefab.tag;
 
-        int particleMultiplier = 1;
+        float particleMultiplier = 1.5f;
         if (Prefab.tag == "Ale" || Prefab.tag == "Lager" ||
             Prefab.tag == "Malt" || Prefab.tag == "Stout")
         {
@@ -140,7 +140,7 @@ public class SpawnLiquid : MonoBehaviour {
             liquidThreshold.GetComponent<Renderer>().material.color = Color.Lerp(liquidThreshold.GetComponent<Renderer>().material.color,
                 liquidColor, (float)particleMultiplier / liquidAmount);
     }
-    public Dictionary<string, int> getLiquids()
+    public Dictionary<string, float> getLiquids()
     {
         return liquids; 
     }
