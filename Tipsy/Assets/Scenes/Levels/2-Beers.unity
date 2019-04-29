@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1608,7 +1608,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4665764502202798, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543727313520994, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0204
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65224915361919144, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
@@ -2015,28 +2019,28 @@ MonoBehaviour:
     container: Beer Mug
     contents:
     - liquid: Ale
-      amount: 6
+      amount: 10
     timeLimit: 45
     difficulty: 3
   - drinkName: Lager (Tap)
     container: Beer Mug
     contents:
     - liquid: Lager
-      amount: 6
+      amount: 10
     timeLimit: 45
     difficulty: 3
   - drinkName: Malt (Tap)
     container: Beer Mug
     contents:
     - liquid: Malt
-      amount: 6
+      amount: 10
     timeLimit: 45
     difficulty: 3
   - drinkName: Stout (Tap)
     container: Beer Mug
     contents:
     - liquid: Stout
-      amount: 6
+      amount: 10
     timeLimit: 45
     difficulty: 3
   - drinkName: Lager (Bottled)
@@ -8598,7 +8602,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4665764502202798, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543727313520994, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0185
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665764502202798, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0375
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65224915361919144, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
@@ -34872,31 +34884,6 @@ MonoBehaviour:
   enableAdaptiveResolution: 0
   minRenderScale: 0.7
   maxRenderScale: 1
-  expandMixedRealityCapturePropertySheet: 0
-  enableMixedReality: 0
-  compositionMethod: 0
-  extraHiddenLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  capturingCameraDevice: 0
-  flipCameraFrameHorizontally: 0
-  flipCameraFrameVertically: 0
-  handPoseStateLatency: 0
-  sandwichCompositionRenderLatency: 0
-  sandwichCompositionBufferedFrames: 8
-  chromaKeyColor: {r: 0, g: 1, b: 0, a: 1}
-  chromaKeySimilarity: 0.6
-  chromaKeySmoothRange: 0.03
-  chromaKeySpillRange: 0.06
-  useDynamicLighting: 0
-  depthQuality: 1
-  dynamicLightingSmoothFactor: 8
-  dynamicLightingDepthVariationClampingValue: 0.001
-  virtualGreenScreenType: 0
-  virtualGreenScreenTopY: 10
-  virtualGreenScreenBottomY: -10
-  virtualGreenScreenApplyDepthCulling: 0
-  virtualGreenScreenDepthTolerance: 0.2
   _trackingOriginType: 1
   usePositionTracking: 1
   useRotationTracking: 1
@@ -35121,7 +35108,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4665764502202798, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665764502202798, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0235
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543727313520994, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.0045
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65224915361919144, guid: f3daa28def9246d4db4ffae8dfc6efd1, type: 2}

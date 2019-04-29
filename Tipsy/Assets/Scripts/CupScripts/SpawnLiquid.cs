@@ -5,7 +5,7 @@ using System;
 using UnityEngine.UI;
 
 public class SpawnLiquid : MonoBehaviour {
-    
+
     public Transform Spawnpoint;
     public int maxSpheres = 150;
     public float maxHeight = .055f;
@@ -20,6 +20,7 @@ public class SpawnLiquid : MonoBehaviour {
     private GameObject fillMeter;
     private Text liquidText;
     private Slider slider;
+    private int beerMultiplier = 4;
 
     //public Rigidbody Prefab;
     int count = 0;
@@ -42,7 +43,7 @@ public class SpawnLiquid : MonoBehaviour {
     }
 
     private void Update()
-    { 
+    {
         numFramesSinceFilling++;
         if (numFramesSinceFilling >= 40)
         {
@@ -75,22 +76,22 @@ public class SpawnLiquid : MonoBehaviour {
 
         Rigidbody RigidPrefab;
 
-        var radius = (float)UnityEngine.Random.Range(0, 100)/1000;
+        var radius = (float)UnityEngine.Random.Range(0, 100) / 1000;
         var rotation = UnityEngine.Random.Range(0, 360);
 
-        Vector3 spot = new Vector3((Spawnpoint.position.x+radius*Mathf.Cos(rotation)),
+        Vector3 spot = new Vector3((Spawnpoint.position.x + radius * Mathf.Cos(rotation)),
                         Spawnpoint.position.y,
-                        (Spawnpoint.position.z+radius*Mathf.Sin(rotation)));
-        
+                        (Spawnpoint.position.z + radius * Mathf.Sin(rotation)));
+
 
         RigidPrefab = Instantiate(Prefab, spot,
                     Spawnpoint.rotation) as Rigidbody;
         RigidPrefab.transform.parent = gameObject.transform;
-    }  
+    }
 
     public void fillCylinder(Rigidbody Prefab, Color liquidColor)
     {
-        if(!GetComponent<AudioSource>().isPlaying)
+        if (!GetComponent<AudioSource>().isPlaying)
             GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().pitch = 1 + ((float)liquidAmount / (float)maxParticles);
         fillMeter.SetActive(true);
@@ -109,20 +110,26 @@ public class SpawnLiquid : MonoBehaviour {
 
         liquidText.text = Prefab.tag;
 
-        liquidAmount++;
-        if (liquids.ContainsKey(Prefab.tag))
-            liquids[Prefab.tag]++;
-        else
+        int particleMultiplier = 1;
+        if (Prefab.tag == "Ale" || Prefab.tag == "Lager" ||
+            Prefab.tag == "Malt" || Prefab.tag == "Stout")
         {
-            liquids.Add(Prefab.tag, 1);
+            particleMultiplier = beerMultiplier;
         }
+
+        liquidAmount += particleMultiplier;
+
+        if (liquids.ContainsKey(Prefab.tag))
+            liquids[Prefab.tag] += particleMultiplier;
+        else
+            liquids.Add(Prefab.tag, particleMultiplier);
 
         float curLiqAmount= (float)liquids[Prefab.tag] * DataManager.ozPerParticle();
         // boardMesh.text = Math.Round(curLiqAmount, 2).ToString() + " oz";
         slider.value = curLiqAmount;
 
-        liquidThreshold.transform.localScale += new Vector3(0, heightPerParticle,0);
-        liquidThreshold.transform.position += new Vector3(0, heightPerParticle, 0);
+        liquidThreshold.transform.localScale += new Vector3(0, particleMultiplier * heightPerParticle,0);
+        liquidThreshold.transform.position += new Vector3(0, particleMultiplier * heightPerParticle, 0);
 
         if (liquidAmount <= 1)
         {
@@ -131,7 +138,7 @@ public class SpawnLiquid : MonoBehaviour {
         }
         else
             liquidThreshold.GetComponent<Renderer>().material.color = Color.Lerp(liquidThreshold.GetComponent<Renderer>().material.color,
-                liquidColor, 1.0f / liquidAmount);
+                liquidColor, (float)particleMultiplier / liquidAmount);
     }
     public Dictionary<string, int> getLiquids()
     {

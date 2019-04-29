@@ -749,7 +749,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224635530022164550}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 6
+  m_MaxValue: 12
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -789,7 +789,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.6
-  m_Text: '   -      4 oz'
+  m_Text: '   -      8 oz'
 --- !u!114 &114230043877132892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -822,7 +822,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.6
-  m_Text: '   -      6 oz'
+  m_Text: '   -      12 oz'
 --- !u!114 &114393626956205608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -871,7 +871,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.6
-  m_Text: '   -      5 oz'
+  m_Text: '   -      10 oz'
 --- !u!114 &114435080741028218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -904,7 +904,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.6
-  m_Text: '   -      1 oz'
+  m_Text: '   -      2 oz'
 --- !u!114 &114587948179608540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -970,7 +970,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.6
-  m_Text: '   -      2 oz'
+  m_Text: '   -      4 oz'
 --- !u!114 &114831977907687824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1117,7 +1117,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1.6
-  m_Text: '   -      3 oz'
+  m_Text: '   -      6 oz'
 --- !u!114 &114945946382744478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   Spawnpoint: {fileID: 4192796970730068}
   maxSpheres: 150
   maxHeight: 0.09
-  maxOz: 6
+  maxOz: 12
   spheresPerOz: 25
   liquidThreshold: {fileID: 1373430584528082}
 --- !u!114 &114999224075303708
