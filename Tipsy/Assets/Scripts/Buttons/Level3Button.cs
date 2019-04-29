@@ -9,6 +9,6 @@ public class Level3Button : PhysicalButton
     {
         base.onClick();
         DataManager.setLevelData(Levels.level3());
-        SceneManager.LoadScene("3-Mixed Drinks");
+        SceneManager.LoadScene("3-Beers and Shots");
     }
 }

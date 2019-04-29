@@ -57,6 +57,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelectScene.unity
     guid: 2acbe5e50beb2b348910e9c0b2624fc6
   - enabled: 1
-    path: Assets/Scenes/Levels/3-Mixed Drinks.unity
+    path: Assets/Scenes/Levels/4-Mixed Drinks.unity
     guid: 8bca04491554b4f429d537e2b8135dc3
+  - enabled: 1
+    path: Assets/Scenes/Levels/5- Mixed Drinks & Beers.unity
+    guid: 768a0437707b09d40864475cfd600f42
   m_configObjects: {}

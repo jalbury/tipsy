@@ -156,7 +156,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 18230339}
-  m_Text: Coming Soon!
+  m_Text: Mixed Drinks & Beer
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -3355,7 +3355,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 905663163}
-  m_Text: Coming Soon!
+  m_Text: Mixed Drinks
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -4144,7 +4144,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145045772}
-  m_Text: Mixed Drinks
+  m_Text: Beer & Shots
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1

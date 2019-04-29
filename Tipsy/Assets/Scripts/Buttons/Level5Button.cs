@@ -8,5 +8,7 @@ public class Level5Button : PhysicalButton
     public override void onClick()
     {
         base.onClick();
-	}
+        DataManager.setLevelData(Levels.level5());
+        SceneManager.LoadScene("5- Mixed Drinks & Beers");
+    }
 }

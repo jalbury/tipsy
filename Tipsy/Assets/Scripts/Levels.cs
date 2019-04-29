@@ -29,4 +29,22 @@ public static class Levels {
         levelData.maxSpawnTime = 35;
         return levelData;
     }
+
+    public static LevelData level4()
+    {
+        LevelData levelData;
+        levelData.difficultyLevels = new int[7] { 1, 4, 4, 1, 1, 4, 4 };
+        levelData.minSpawnTime = 15;
+        levelData.maxSpawnTime = 35;
+        return levelData;
+    }
+
+    public static LevelData level5()
+    {
+        LevelData levelData;
+        levelData.difficultyLevels = new int[10] { 1, 3, 2, 4, 4, 2, 1, 3, 2, 4 };
+        levelData.minSpawnTime = 15;
+        levelData.maxSpawnTime = 35;
+        return levelData;
+    }
 }
