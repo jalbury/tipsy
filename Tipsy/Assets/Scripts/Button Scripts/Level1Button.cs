@@ -9,6 +9,6 @@ public class Level1Button : PhysicalButton
 	{
         base.onClick();
         DataManager.setLevelData(Levels.level1());
-        SceneManager.LoadScene("GameScene");	
+        SceneManager.LoadScene("1-Shots");
 	}
 }

@@ -5,64 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Oculus/VR/Scenes/GearVrControllerTest.unity
-    guid: d56af3aeb2176e7459f753c1c2e2dd97
-  - enabled: 0
-    path: Assets/Oculus/VR/Scenes/UI.unity
-    guid: 1f4d3ae64a10d434db219de8b14348e1
-  - enabled: 0
-    path: Assets/Oculus/VR/Scenes/Room.unity
-    guid: 54445976c1dbf1c49bb38ba7eba558e8
-  - enabled: 0
-    path: Assets/Unused/TestScene.unity
-    guid: 43a2403100a9340619c4f13e6e733dbf
-  - enabled: 0
-    path: Assets/Scenes/Demo Scene.unity
-    guid: f365d3397be1c7b4d89342b499edabd7
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Visual Models/Demo Scenes/SmallScene.unity
-    guid: 64e7bf327a5584ed584b8f9b4a58bb22
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: 14acbb9de06d94da4b37268f574a6897
-  - enabled: 0
-    path: Assets/Scenes/StartMenu_WIP.unity
-    guid: ac4a2be050f09447db7cbe14b3b51cea
-  - enabled: 1
-    path: Assets/Scenes/GameScene.unity
-    guid: 9ce55933c94f842cd96692b579e875fc
-  - enabled: 1
-    path: Assets/Scenes/ScoreScene.unity
-    guid: 37a8b11ac5acf8c4891682bbeb04f800
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Levels/2-Beers.unity
-    guid: 679593f3d5181304691702aad30981ea
   - enabled: 1
     path: Assets/Scenes/LevelSelectScene.unity
     guid: 2acbe5e50beb2b348910e9c0b2624fc6
   - enabled: 1
-    path: Assets/Scenes/Levels/4-Mixed Drinks.unity
-    guid: 8bca04491554b4f429d537e2b8135dc3
+    path: Assets/Scenes/ScoreScene.unity
+    guid: 37a8b11ac5acf8c4891682bbeb04f800
   - enabled: 1
-    path: Assets/Scenes/Levels/5- Mixed Drinks & Beers.unity
-    guid: 768a0437707b09d40864475cfd600f42
+    path: Assets/Scenes/Levels/1-Shots.unity
+    guid: 9ce55933c94f842cd96692b579e875fc
+  - enabled: 1
+    path: Assets/Scenes/Levels/2-Beers.unity
+    guid: 679593f3d5181304691702aad30981ea
   - enabled: 1
     path: Assets/Scenes/Levels/3-Beers and Shots.unity
     guid: 8dc36a0da19d27a478bfa48ffe186e21
+  - enabled: 1
+    path: Assets/Scenes/Levels/4-Mixed Drinks.unity
+    guid: 8bca04491554b4f429d537e2b8135dc3
+  - enabled: 1
+    path: Assets/Scenes/Levels/5-Mixed Drinks & Beers.unity
+    guid: 768a0437707b09d40864475cfd600f42
   m_configObjects: {}
