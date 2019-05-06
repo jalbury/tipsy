@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65491026342766298}
   m_Layer: 0
   m_Name: Rum
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,6 +203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTimeUntilDestroy: 5
+  minPourRate: 50
+  maxPourRate: 200
   liquidFlow: {fileID: 198049803643345230}
 --- !u!114 &114890933273442218
 MonoBehaviour:

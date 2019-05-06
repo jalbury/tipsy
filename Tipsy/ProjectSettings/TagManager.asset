@@ -6,12 +6,8 @@ TagManager:
   tags:
   - canPickUp
   - objectDispenser
-  - shouldDisappear
   - hoverable
-  - button
-  - play
   - barSeat
-  - cup
   - bartenderTable
   - isCupThreshold
   - Rum

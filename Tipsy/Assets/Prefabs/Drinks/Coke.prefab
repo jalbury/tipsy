@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 65945642678149646}
   m_Layer: 0
   m_Name: Coke
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65950088666672120}
   m_Layer: 0
   m_Name: Tonic
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 65949559354754154}
   m_Layer: 0
   m_Name: Gin
-  m_TagString: Untagged
+  m_TagString: canPickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
