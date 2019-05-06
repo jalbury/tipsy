@@ -5,6 +5,10 @@
 [Bb]uilds/
 [Ll]ogs/
 
+# Ignore third party packages
+LowPolyBusinessPeople*
+9t5 Low Poly Pub Pack*
+
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
 
