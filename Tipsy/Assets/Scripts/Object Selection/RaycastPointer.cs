@@ -35,11 +35,16 @@ public class RaycastPointer : MonoBehaviour
     private bool isPaused, onPauseButton;
     public GameObject customerManager;
     public GameObject pauseMenu;
+    public GameObject pauseMenuTracker;
     private GameObject jukebox = null;
+    private Vector3 originalPauseMenuPosition;
+    private Vector3 currentPauseMenuPosition;
+    private Quaternion currentPauseMenuRotation;
 
     private void Start()
     {
         startDistance = objDistance;
+        originalPauseMenuPosition = pauseMenu.transform.position;
     }
 
     // initializes anchors and line renderer
@@ -72,8 +77,6 @@ public class RaycastPointer : MonoBehaviour
             lineRenderer.widthMultiplier = 0.02f;
             lineRenderer.material.color = Color.red;
         }
-
-
     }
 
     // gets transform of the active controller
@@ -96,6 +99,7 @@ public class RaycastPointer : MonoBehaviour
 
     void Update()
     {
+        // only check for pause stuff in levels
         if (isLevel)
         {
             // check whether player is currently pressing pause button
@@ -120,6 +124,7 @@ public class RaycastPointer : MonoBehaviour
             }
         }
 
+        // check if we're currently dispensing a tap
         if (tapDispensing)
         {
             // if tap is dispensing and player takes finger off trigger, stop dispensing
@@ -414,6 +419,16 @@ public class RaycastPointer : MonoBehaviour
         wasHovering = isHovering;
     }
 
+    void LateUpdate()
+    {
+        // if game is paused, lock position and rotation of pause menu
+        if (isPaused)
+        {
+            pauseMenu.transform.position = currentPauseMenuPosition;
+            pauseMenu.transform.rotation = currentPauseMenuRotation;
+        }
+    }
+
     void FixedUpdate()
     {
         // handle physics of throwing objects
@@ -493,9 +508,19 @@ public class RaycastPointer : MonoBehaviour
         isPaused = true;
         // hide all customer orders to avoid cheating
         customerManager.GetComponent<CustomerManager>().showOrders(false);
+
         // show pause menu
         pauseMenu.SetActive(true);
-        // pause game
+
+        // store current position and rotation of pause menu to keep it still until
+        // game is resumed
+        float currXPos = pauseMenu.transform.position.x;
+        float currYPos = originalPauseMenuPosition.y;
+        float currZPos = pauseMenu.transform.position.z;
+        currentPauseMenuPosition = new Vector3(currXPos, currYPos, currZPos);
+        currentPauseMenuRotation = Quaternion.Euler(0f, pauseMenu.transform.rotation.eulerAngles.y, 0f);
+
+        // freeze time to pause game
         Time.timeScale = 0f;
     }
 
@@ -505,7 +530,10 @@ public class RaycastPointer : MonoBehaviour
         // show all customer orders
         customerManager.GetComponent<CustomerManager>().showOrders(true);
         // hide pause menu
+        pauseMenu.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         pauseMenu.SetActive(false);
+        pauseMenu.transform.position = pauseMenuTracker.transform.position;
+        pauseMenu.transform.rotation = pauseMenuTracker.transform.rotation;
         // resume game
         Time.timeScale = 1f;
     }
